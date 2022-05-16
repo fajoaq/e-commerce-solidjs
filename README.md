@@ -1,34 +1,37 @@
-## Usage
+## Setup Steps
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+These are the steps I took to build my example E-Commerce site.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+- Cloned the SolidJs Vite template:
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+  > npx degit solidjs/templates/js my-app
+  > cd my-app
+  > npm i # or yarn or pnpm
+  > npm run dev # or yarn or pnpm
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+- Installed the Contenful package:
 
-## Available Scripts
+  > npm i contentful
 
-In the project directory, you can run:
+- Created a new Space/Organization on Contenful
 
-### `npm dev` or `npm start`
+- Created a new Content Model (products)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Created a few example products
 
-The page will reload if you make edits.<br>
+- Generated a new API Key on Contentful
 
-### `npm run build`
+- Created development env file (.env.development)
 
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
+  > only variables prefixed with VITE will be exposed to the client
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- Created client with createClient from contentful
 
-## Deployment
+  > const client = createClient({...})
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+- Created a new resource from solidjs to fetch data
+
+  > const [productData] = createResource(async () => {})
+
+- Test data with For primitive from solidjs
+  > <For each={productData()}>{(item) => <li>{item.fields.title}</li>}</For>
