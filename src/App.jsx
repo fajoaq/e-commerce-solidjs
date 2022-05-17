@@ -1,7 +1,40 @@
+import styles from "./App.module.css";
+import { MainNavigation } from "./components/navigation/MainNavigation";
+import { Hero } from "./components/hero/Hero";
+import { CallToAction } from "./components/hero/CallToAction";
+import { ServiceBanner } from "./components/service-banner/ServiceBanner";
+import { FullRoomSection } from "./components/full-rooms/FullRoomSection";
+import { BestSellerSection } from "./components/best-sellers/BestSellersSection";
+import { PromotionLarge } from "./components/promotion-large/PromotionLarge";
+import { FeaturedProducts } from "./components/featured-products/FeaturedProducts";
+import { MailingListSection } from "./components/mailing-list/MailingListSection";
+import { UserReviews } from "./components/user-reviews/UserReviews";
+import { Footer } from "./components/footer/Footer";
+
+function App() {
+  return (
+    <div class={styles.App}>
+      <MainNavigation />
+      <Hero>
+        <CallToAction />
+      </Hero>
+      <ServiceBanner />
+      <FullRoomSection />
+      <BestSellerSection />
+      <PromotionLarge />
+      <FeaturedProducts />
+      <MailingListSection />
+      <UserReviews />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+
+/* 
 import { createResource, For } from "solid-js";
 import { createClient } from "contentful";
-
-import styles from "./App.module.css";
 
 const client = createClient({
   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -21,14 +54,7 @@ const [productData] = createResource(async () => {
   return data.items;
 });
 
-function App() {
-  return (
-    <div class={styles.App}>
       <ul>
         <For each={productData()}>{(item) => <li>{item.fields.title}</li>}</For>
       </ul>
-    </div>
-  );
-}
-
-export default App;
+*/

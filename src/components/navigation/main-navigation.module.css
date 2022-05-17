@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  text-align: center;
+}
+
+.width_constraint {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.inner_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  background-color: aqua;
+}

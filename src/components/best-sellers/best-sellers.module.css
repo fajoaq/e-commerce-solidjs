@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6em;
+  padding: 2.6em;
+  background-color: cadetblue;
+  text-align: center;
+}
+
+.item {
+  flex-grow: 1;
+  min-height: 120px;
+  aspect-ratio: 4/3;
+  background-color: aqua;
+}

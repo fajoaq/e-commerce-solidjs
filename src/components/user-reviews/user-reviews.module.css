@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 2em 2em 2em;
+  background-color: violet;
+  text-align: center;
+}
+
+.width_constraint {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.header {
+  background-color: blue;
+  color: white;
+}
+
+.inner_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  min-height: 3rem;
+  background-color: wheat;
+}
+
+.item {
+  min-height: 120px;
+  aspect-ratio: 4/3;
+  color: white;
+  background-color: black;
+}

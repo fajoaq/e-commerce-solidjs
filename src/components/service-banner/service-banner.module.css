@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+  text-align: center;
+}
+
+.width_constraint {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.inner_container {
+  background-color: yellow;
+}

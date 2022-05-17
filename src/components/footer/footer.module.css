@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 2em;
+  background-color: red;
+  text-align: center;
+}
+
+.inner_container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  background-color: aquamarine;
+}

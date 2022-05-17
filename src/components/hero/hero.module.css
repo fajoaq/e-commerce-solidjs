@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+  text-align: center;
+}
+
+.width_constraint {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.inner_container {
+  width: 100%;
+  background-color: bisque;
+}
+
+.cta_container {
+  width: 100%;
+  max-width: 60%;
+  padding: 1em;
+  background-color: violet;
+}

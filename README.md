@@ -34,4 +34,7 @@ These are the steps I took to build my example E-Commerce site.
   > const [productData] = createResource(async () => {})
 
 - Test data with For primitive from solidjs
+
   > <For each={productData()}>{(item) => <li>{item.fields.title}</li>}</For>
+
+- Add App layout

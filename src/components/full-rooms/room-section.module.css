@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  background-color: brown;
+  text-align: center;
+}
+
+.room_section {
+  flex-grow: 1;
+  background-color: wheat;
+}
