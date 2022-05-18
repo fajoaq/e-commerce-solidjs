@@ -1,4 +1,4 @@
-import styles from "./App.module.css";
+import styles from "./styles/App.module.css";
 import { MainNavigation } from "./components/navigation/MainNavigation";
 import { Hero } from "./components/hero/Hero";
 import { CallToAction } from "./components/hero/CallToAction";

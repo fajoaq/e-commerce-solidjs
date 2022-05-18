@@ -1,9 +1,20 @@
+@import "../../styles/vars.css";
+
 .container {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  width: 100%;
+  height: 84px;
   text-align: center;
+  padding: var(--spacing-xsmall);
+  background-color: var(--theme-main);
+}
+
+.container_spacer {
+  height: 84px;
+  padding: var(--spacing-xsmall);
 }
 
 .width_constraint {
@@ -16,6 +27,43 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 3rem;
-  background-color: aqua;
+  color: var(--font-color-main);
+}
+
+.inner_container div:first-of-type {
+  justify-content: start;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_container {
+  font-size: var(--font-size-large);
+}
+
+.links_container {
+  flex-grow: 1;
+  display: flex;
+  gap: var(--spacing-small);
+}
+.links_container button {
+  border: none;
+  background-color: transparent;
+  color: var(--font-color-main);
+}
+
+.cart_container::before {
+  content: "";
+  background: url("/src/assets/icons/shopping-cart.svg") no-repeat center
+    center/contain;
+  width: 1em;
+  height: 1em;
+}
+
+.cart_item_count {
+  padding-right: var(--spacing-small);
+  padding-left: 0.5em;
 }

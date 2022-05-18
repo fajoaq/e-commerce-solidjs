@@ -1,0 +1,12 @@
+:root {
+  --theme-main: hsl(43, 100%, 49%);
+
+  --font-color-main: hsl(180, 100%, 99%);
+
+  --spacing-xsmall: 1rem;
+  --spacing-small: 3rem;
+
+  --font-size-small: 1rem;
+  --font-size-medium: 1.3rem;
+  --font-size-large: 1.6rem;
+}
