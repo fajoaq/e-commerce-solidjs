@@ -19,7 +19,7 @@
 
 .width_constraint {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--breakpoint-lg);
 }
 
 .inner_container {
@@ -41,7 +41,7 @@
 }
 
 .logo_container {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-h2);
 }
 
 .links_container {

@@ -1,3 +1,5 @@
+@import "../../styles/vars.css";
+
 .container {
   display: flex;
   justify-content: center;
@@ -10,7 +12,7 @@
 .inner_container {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--breakpoint-lg);
 }
 
 .item {
