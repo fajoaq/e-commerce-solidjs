@@ -1,4 +1,4 @@
-import styles from "./user-reviews.module.css";
+import styles from "./user-reviews.module.scss";
 
 const UserReviews = (props) => (
   <div class={styles.container} {...props}>

@@ -1,4 +1,4 @@
-import styles from "./room-section.module.css";
+import styles from "./room-section.module.scss";
 
 const FullRoomSection = (props) => (
   <div class={styles.container} {...props}>

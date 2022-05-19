@@ -1,4 +1,4 @@
-import styles from "./hero.module.css";
+import styles from "./hero.module.scss";
 
 const Hero = (props) => (
   <div class={props.class ? props.class : styles.container}>

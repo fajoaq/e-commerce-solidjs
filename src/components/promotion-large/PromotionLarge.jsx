@@ -1,4 +1,4 @@
-import styles from "./promotion.module.css";
+import styles from "./promotion.module.scss";
 
 const PromotionLarge = (props) => (
   <div class={styles.container} {...props}>

@@ -1,25 +1,24 @@
-@import "../../styles/vars.css";
+@use "../../styles/vars.scss";
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4em 2em;
-  background-color: red;
+  padding: 5em 1em;
+  background-color: yellowgreen;
   text-align: center;
 }
 
-.inner_container {
-  display: flex;
+.width_constraint {
   width: 100%;
-  max-width: var(--breakpoint-lg);
+  max-width: vars.$breakpoint-lg;
 }
 
-.item {
+.inner_container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 3rem;
-  background-color: aquamarine;
+  background-color: tan;
 }

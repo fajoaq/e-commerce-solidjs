@@ -1,4 +1,4 @@
-import styles from "./best-sellers.module.css";
+import styles from "./best-sellers.module.scss";
 
 const BestSellerSection = (props) => (
   <div class={styles.container} {...props}>

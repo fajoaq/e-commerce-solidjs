@@ -1,4 +1,4 @@
-import styles from "./main-navigation.module.css";
+import styles from "./main-navigation.module.scss";
 
 const MainNavigation = (props) => (
   <>

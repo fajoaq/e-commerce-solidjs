@@ -1,4 +1,4 @@
-import styles from "./featured-products.module.css";
+import styles from "./featured-products.module.scss";
 
 const FeaturedProducts = (props) => (
   <div class={styles.container} {...props}>

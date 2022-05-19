@@ -1,4 +1,4 @@
-import styles from "./mailing-list.module.css";
+import styles from "./mailing-list.module.scss";
 
 const MailingListSection = (props) => (
   <div class={styles.container} {...props}>

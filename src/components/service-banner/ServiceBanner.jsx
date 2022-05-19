@@ -1,4 +1,4 @@
-import styles from "./service-banner.module.css";
+import styles from "./service-banner.module.scss";
 
 const ServiceBanner = (props) => (
   <div class={props.class ? props.class : styles.container}>

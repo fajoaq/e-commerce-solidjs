@@ -1,0 +1,72 @@
+@use "../../styles/vars.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url("/src//assets/bg/hero-bg-1.jpg") no-repeat center center/cover;
+  padding: vars.$spacing-large vars.$spacing-small;
+}
+
+.width_constraint {
+  width: 100%;
+  max-width: vars.$breakpoint-lg;
+}
+
+.inner_container {
+  width: 100%;
+  height: 100%;
+}
+
+.cta_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: vars.$spacing-xsmall;
+  width: 100%;
+  max-width: 56%;
+  height: 100%;
+  text-align: left;
+  border-left: 3px solid vars.$theme-main;
+  color: vars.$font-color-main;
+  background-color: vars.$theme-dark-bg;
+  padding: vars.$spacing-medium vars.$spacing-small;
+  font-size: vars.$font-size-special;
+  transition: max-width vars.$transition-short ease-in-out;
+}
+
+.cta_container h1 {
+  font-family: Calisto, Cochin, Georgia, Times, "Times New Roman", serif;
+  line-height: vars.$spacing-medium;
+  font-size: vars.$font-size-h1;
+}
+
+.cta_button {
+  border-radius: 5px;
+  margin-top: vars.$spacing-xsmall;
+  border: thin solid vars.$theme-accent;
+  height: vars.$spacing-medium;
+  width: vars.$sizing-large;
+  background-color: vars.$theme-main;
+}
+
+.cta_button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: vars.$breakpoint_md) {
+  .cta_container {
+    max-width: 76%;
+  }
+}
+@media (max-width: vars.$breakpoint_sm) {
+  .cta_container {
+    max-width: 100%;
+  }
+}

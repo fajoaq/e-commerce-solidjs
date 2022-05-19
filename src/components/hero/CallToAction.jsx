@@ -1,4 +1,4 @@
-import styles from "./hero.module.css";
+import styles from "./hero.module.scss";
 
 const CallToAction = (props) => (
   <div class={styles.cta_container} {...props}>
