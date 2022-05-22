@@ -37,4 +37,8 @@ These are the steps I took to build my example E-Commerce site.
 
   > <For each={productData()}>{(item) => <li>{item.fields.title}</li>}</For>
 
-- Add App layout
+- Added App layout
+
+- Added Sass for global variables within media queries
+
+  > @media (max-width: vars.$breakpoint_sm)

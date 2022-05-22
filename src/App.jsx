@@ -11,11 +11,17 @@ import { MailingListSection } from "./components/mailing-list/MailingListSection
 import { UserReviews } from "./components/user-reviews/UserReviews";
 import { Footer } from "./components/footer/Footer";
 
+const heroImgUrlArr = [
+  "/src/assets/bg/hero-bg-1.jpg",
+  "/src/assets/bg/hero-bg-2.jpg",
+  "/src/assets/bg/hero-bg-3.jpg",
+];
+
 function App() {
   return (
     <div class={styles.App}>
       <MainNavigation />
-      <Hero>
+      <Hero imgUrlList={heroImgUrlArr}>
         <CallToAction />
       </Hero>
       <ServiceBanner />
