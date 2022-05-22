@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: vars.$font-color-main;
+  color: vars.$font-color-secondary;
 }
 
 .inner_container div:first-of-type {
@@ -53,13 +53,14 @@
 .links_container button {
   border: none;
   background-color: transparent;
-  color: vars.$font-color-main;
+  color: vars.$font-color-secondary;
 }
 
 .cart_container::before {
   content: "";
-  background: url("/src/assets/icons/shopping-cart.svg") no-repeat center
-    center/contain;
+  background-color: vars.$font-color-main;
+  -webkit-mask-image: url("/src/assets/icons/shopping-cart.svg");
+  mask-image: url("/src/assets/icons/shopping-cart.svg");
   width: 1em;
   height: 1em;
 }
