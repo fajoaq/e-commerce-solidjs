@@ -1,9 +1,11 @@
 $theme-main: hsl(43, 100%, 49%);
 $theme-accent: hsl(0, 0%, 100%);
-$theme-dark-bg: hsla(0, 0%, 0%, 0.38);
+$theme-dark-bg: hsla(0, 0%, 0%, 0.4);
+$theme-light-bg: hsl(0, 0%, 97%);
 
 $font-color-main: hsl(0, 0%, 20%);
 $font-color-secondary: hsl(0, 0%, 100%);
+$font-color-main-off: hsl(0, 0%, 40%);
 
 $spacing-xsmall: 1rem;
 $spacing-small: 2rem;
@@ -22,5 +24,6 @@ $font-size-normal: 1rem;
 $font-size-special: 1.1rem;
 $font-size-h1: 3.3rem;
 $font-size-h2: 1.6rem;
+$font-size-h4: 0.96rem;
 
 $transition-short: 360ms;

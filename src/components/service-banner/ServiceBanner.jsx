@@ -1,9 +1,43 @@
 import styles from "./service-banner.module.scss";
 
 const ServiceBanner = (props) => (
-  <div class={props.class ? props.class : styles.container}>
+  <div class={styles.container} {...props}>
     <div class={[styles.width_constraint, styles.inner_container].join(" ")}>
-      Service Banner
+      <div class={styles.feature_container}>
+        <div
+          class={styles.features_icon}
+          style={"--bgImg: url(/src/assets/icons/shipping.svg);"}
+        />
+
+        <div class={styles.feature}>
+          <h2>Free Shipping</h2>
+          <p>On All Orders Over $99.99</p>
+        </div>
+      </div>
+
+      <div class={styles.feature_container}>
+        <div
+          class={styles.features_icon}
+          style={"--bgImg: url(/src/assets/icons/handshake.svg);"}
+        />
+
+        <div class={styles.feature}>
+          <h2>Warranty &amp; Money-Back Guarantee</h2>
+          <p>We Stand By Our Quality</p>
+        </div>
+      </div>
+
+      <div class={styles.feature_container}>
+        <div
+          class={styles.features_icon}
+          style={"--bgImg: url(/src/assets/icons/support.svg);"}
+        />
+
+        <div class={styles.feature}>
+          <h2>Telephone &amp; Web Support</h2>
+          <a href="tel:123-456-7890">123-456-7890</a>
+        </div>
+      </div>
     </div>
   </div>
 );
