@@ -1,14 +1,67 @@
+@use "../../styles/vars.scss";
+
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2em;
-  padding: 2em;
-  background-color: brown;
+  gap: vars.$spacing-medium;
   text-align: center;
+  padding: vars.$spacing-medium;
+}
+.container .cta_container:last-of-type {
+  flex-basis: 76%;
+}
+.cta_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  text-align: left;
+  background: var(--bgImg);
+  color: vars.$font-color-secondary;
+  background-color: vars.$theme-dark-bg-off;
+  padding: vars.$spacing-medium vars.$spacing-small;
+  font-size: vars.$font-size-special;
+  transition: background-color vars.$transition-short ease-in-out;
+}
+.cta_container:hover img {
+  filter: grayscale(0%);
+  transition: filter vars.$transition-short ease-in-out;
+}
+.cta_container:hover {
+  background-color: hsla(0, 0%, 0%, 0.1%);
+  transition: background-color vars.$transition-short ease-in-out;
 }
 
-.room_section {
-  flex-grow: 1;
-  background-color: wheat;
+.cta_button {
+  border-radius: 5px;
+  margin-top: vars.$spacing-xsmall;
+  border: thin solid vars.$theme-accent;
+  height: vars.$sizing-xsmall;
+  width: vars.$sizing-medium;
+  background-color: vars.$theme-main;
+}
+.cta_button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.bg img {
+  min-height: 100%;
+  object-fit: cover;
+  filter: grayscale(66%);
+  transition: filter vars.$transition-short ease-in-out;
 }
