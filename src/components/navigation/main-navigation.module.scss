@@ -25,7 +25,7 @@
 
 .inner_container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   color: vars.$font-color-secondary;
@@ -68,4 +68,10 @@
 .cart_item_count {
   padding-right: vars.$spacing-small;
   padding-left: 0.5em;
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .links_container {
+    display: none;
+  }
 }

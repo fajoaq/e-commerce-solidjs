@@ -1,17 +1,22 @@
 @use "../../styles/vars.scss";
 
+.bg_color {
+  background-color: vars.$theme-accent;
+}
 .container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: vars.$spacing-medium;
   text-align: center;
+  z-index: 1;
+  gap: vars.$spacing-medium;
   padding: vars.$spacing-medium;
 }
 .container .cta_container:last-of-type {
   flex-basis: 76%;
 }
+
 .cta_container {
   position: relative;
   display: flex;
@@ -36,6 +41,9 @@
   background-color: hsla(0, 0%, 0%, 0.1%);
   transition: background-color vars.$transition-short ease-in-out;
 }
+.cta_container > h2 {
+  margin-bottom: 1rem;
+}
 
 .cta_button {
   border-radius: 5px;
@@ -51,6 +59,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -64,4 +73,19 @@
   object-fit: cover;
   filter: grayscale(66%);
   transition: filter vars.$transition-short ease-in-out;
+}
+
+@media (max-width: vars.$breakpoint_lg) {
+  .container {
+    flex-direction: column;
+  }
+}
+@media (max-width: vars.$breakpoint_xs) {
+  .container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
+
+  .cta_container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
 }

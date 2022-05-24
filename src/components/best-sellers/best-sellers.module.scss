@@ -1,16 +1,88 @@
+@use "../../styles/vars.scss";
+
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: vars.$spacing-medium;
+}
+.container > p {
+  font-size: vars.$font-size-special;
+  font-weight: bold;
+  color: vars.$theme-main;
+}
+.container > h2 {
+  padding: vars.$spacing-small;
+}
+
+.inner_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.6em;
-  padding: 2.6em;
-  background-color: cadetblue;
+  flex-wrap: nowrap;
+  width: 100%;
   text-align: center;
+  column-gap: vars.$spacing-xsmall * 0.6;
+  row-gap: vars.$spacing-small;
+
+  padding-top: vars.$spacing-xsmall;
 }
 
 .item {
-  flex-grow: 1;
-  min-height: 120px;
-  aspect-ratio: 4/3;
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.item > img {
+  display: block;
+  aspect-ratio: 6/5;
+  margin-bottom: vars.$spacing-xsmall;
+}
+.item > span {
+  font-size: vars.$font-size-h3;
+  font-weight: vars.$font-w-bold-less;
+  color: vars.$theme-main;
+}
+
+.cta_button {
+  border-radius: 5px;
+  margin-top: vars.$spacing-xsmall;
+  border: thin solid vars.$theme-accent;
+  height: vars.$sizing-xsmall;
+  width: vars.$sizing-medium;
+  background-color: vars.$theme-main;
+}
+.cta_button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .inner_container {
+    flex-wrap: wrap;
+  }
+
+  .item {
+    flex-basis: 48%;
+  }
+}
+@media (max-width: vars.$breakpoint-xs) {
+  .container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
+
+  .item {
+    flex-basis: 100%;
+  }
+
+  .item > img {
+    display: block;
+    aspect-ratio: 1/1;
+  }
 }

@@ -6,9 +6,9 @@ import { ServiceBanner } from "./components/service-banner/ServiceBanner";
 import { FullRoomSection } from "./components/full-rooms/FullRoomSection";
 import { BestSellerSection } from "./components/best-sellers/BestSellersSection";
 import { PromotionLarge } from "./components/promotion-large/PromotionLarge";
-import { FeaturedProducts } from "./components/featured-products/FeaturedProducts";
+//import { FeaturedProducts } from "./components/featured-products/FeaturedProducts";
 import { MailingListSection } from "./components/mailing-list/MailingListSection";
-import { UserReviews } from "./components/user-reviews/UserReviews";
+//import { UserReviews } from "./components/user-reviews/UserReviews";
 import { Footer } from "./components/footer/Footer";
 
 const heroImgUrlArr = [
@@ -28,15 +28,17 @@ function App() {
       <FullRoomSection />
       <BestSellerSection />
       <PromotionLarge />
-      <FeaturedProducts />
       <MailingListSection />
-      <UserReviews />
+
       <Footer />
     </div>
   );
 }
 
 export default App;
+
+//       <FeaturedProducts />
+//      <UserReviews />
 
 /* 
 import { createResource, For } from "solid-js";

@@ -1,13 +1,15 @@
 $theme-main: hsl(43, 100%, 49%);
 $theme-accent: hsl(0, 0%, 100%);
+$theme-bg-color: hsl(0, 0%, 97%);
+$theme-bg-color-off: hsl(0, 0%, 94%);
 $theme-dark-bg: hsla(0, 0%, 0%, 0.4);
 $theme-dark-bg-off: hsla(0, 0%, 0%, 0.2);
-
-$theme-light-bg: hsl(0, 0%, 97%);
 
 $font-color-main: hsl(0, 0%, 20%);
 $font-color-secondary: hsl(0, 0%, 100%);
 $font-color-main-off: hsl(0, 0%, 40%);
+
+$font-w-bold-less: 500;
 
 $spacing-xsmall: 1rem;
 $spacing-small: 2rem;
@@ -28,7 +30,7 @@ $breakpoint-xs: 460px;
 $font-size-normal: 1rem;
 $font-size-special: 1.1rem;
 $font-size-h1: 3.3rem;
-$font-size-h2: 2.6rem;
+$font-size-h2: 2.4rem;
 $font-size-h3: 1.6rem;
 $font-size-h4: 0.96rem;
 
