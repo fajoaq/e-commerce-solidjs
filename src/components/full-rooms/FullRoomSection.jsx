@@ -11,10 +11,7 @@ const FullRoomSection = (props) => (
         </div>
 
         <div class={styles.bg}>
-          <img
-            src="/src/assets/bg/bedroom-full-room.jpg"
-            alt="Gallery image one."
-          />
+          <img src="bg/bedroom-full-room.jpg" alt="Gallery image one." />
         </div>
       </div>
 
@@ -26,10 +23,7 @@ const FullRoomSection = (props) => (
         </div>
 
         <div class={styles.bg}>
-          <img
-            src="/src/assets/bg/living-room-full-room.jpg"
-            alt="Gallery image two."
-          />
+          <img src="bg/living-room-full-room.jpg" alt="Gallery image two." />
         </div>
       </div>
     </div>

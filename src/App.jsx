@@ -12,9 +12,9 @@ import { MailingListSection } from "./components/mailing-list/MailingListSection
 import { Footer } from "./components/footer/Footer";
 
 const heroImgUrlArr = [
-  "/src/assets/bg/hero-bg-1.jpg",
-  "/src/assets/bg/hero-bg-2.jpg",
-  "/src/assets/bg/hero-bg-3.jpg",
+  "bg/hero-bg-1.jpg",
+  "bg/hero-bg-2.jpg",
+  "bg/hero-bg-3.jpg",
 ];
 
 function App() {

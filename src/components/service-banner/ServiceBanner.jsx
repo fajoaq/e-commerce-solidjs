@@ -6,7 +6,7 @@ const ServiceBanner = (props) => (
       <div class={styles.feature_container}>
         <div
           class={styles.features_icon}
-          style={"--bgImg: url(/src/assets/icons/shipping.svg);"}
+          style={"--bgImg: url(/icons/shipping.svg);"}
         />
 
         <div class={styles.feature}>
@@ -18,7 +18,7 @@ const ServiceBanner = (props) => (
       <div class={styles.feature_container}>
         <div
           class={styles.features_icon}
-          style={"--bgImg: url(/src/assets/icons/handshake.svg);"}
+          style={"--bgImg: url(/icons/handshake.svg);"}
         />
 
         <div class={styles.feature}>
@@ -30,7 +30,7 @@ const ServiceBanner = (props) => (
       <div class={styles.feature_container}>
         <div
           class={styles.features_icon}
-          style={"--bgImg: url(/src/assets/icons/support.svg);"}
+          style={"--bgImg: url(/icons/support.svg);"}
         />
 
         <div class={styles.feature}>

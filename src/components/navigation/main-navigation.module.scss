@@ -59,8 +59,8 @@
 .cart_container::before {
   content: "";
   background-color: vars.$font-color-main;
-  -webkit-mask-image: url("/src/assets/icons/shopping-cart.svg");
-  mask-image: url("/src/assets/icons/shopping-cart.svg");
+  -webkit-mask-image: url("/icons/shopping-cart.svg");
+  mask-image: url("/icons/shopping-cart.svg");
   width: 1em;
   height: 1em;
 }

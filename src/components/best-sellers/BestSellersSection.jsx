@@ -7,7 +7,7 @@ const BestSellerSection = (props) => (
 
     <div class={styles.inner_container}>
       <div class={styles.item}>
-        <img src="/src/assets/bg/featured-sofa.jpg" alt="picture of a sofa/" />
+        <img src="bg/featured-sofa.jpg" alt="picture of a sofa/" />
         <h3>Sofa</h3>
         <span>&dollar;1399</span>
         <div class={styles.cta_button}>
@@ -16,10 +16,7 @@ const BestSellerSection = (props) => (
       </div>
 
       <div class={styles.item}>
-        <img
-          src="/src/assets/bg/featured-table.jpg"
-          alt="picture of a table/"
-        />
+        <img src="bg/featured-table.jpg" alt="picture of a table/" />
         <h3>Coffee Table </h3>
         <span>&dollar;149</span>
         <div class={styles.cta_button}>
@@ -28,7 +25,7 @@ const BestSellerSection = (props) => (
       </div>
 
       <div class={styles.item}>
-        <img src="/src/assets/bg/featured-bed.jpg" alt="picture of a bed/" />
+        <img src="bg/featured-bed.jpg" alt="picture of a bed/" />
         <h3>Queen Bed</h3>
         <span>&dollar;799</span>
         <div class={styles.cta_button}>
@@ -37,10 +34,7 @@ const BestSellerSection = (props) => (
       </div>
 
       <div class={styles.item}>
-        <img
-          src="/src/assets/bg/featured-dresser.jpg"
-          alt="picture of a dresser drawer/"
-        />
+        <img src="bg/featured-dresser.jpg" alt="picture of a dresser drawer/" />
         <h3>Dresser</h3>
         <span>&dollar;499</span>
         <div class={styles.cta_button}>
