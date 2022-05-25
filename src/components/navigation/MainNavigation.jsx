@@ -6,7 +6,7 @@ const MainNavigation = (props) => (
     <div class={styles.container} {...props}>
       <div class={[styles.width_constraint, styles.inner_container].join(" ")}>
         <div class={[styles.item, styles.logo_container].join(" ")}>
-          <p>Business Name</p> {/* logo */}
+          <p>Brand Name</p> {/* logo */}
         </div>
 
         <div class={[styles.item, styles.links_container].join(" ")}>

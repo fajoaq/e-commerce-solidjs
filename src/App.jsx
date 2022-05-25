@@ -6,6 +6,7 @@ import { ServiceBanner } from "./components/service-banner/ServiceBanner";
 import { FullRoomSection } from "./components/full-rooms/FullRoomSection";
 import { BestSellerSection } from "./components/best-sellers/BestSellersSection";
 import { PromotionLarge } from "./components/promotion-large/PromotionLarge";
+import { CallToAction as PromoCTA } from "./components/promotion-large/CallToAction";
 //import { FeaturedProducts } from "./components/featured-products/FeaturedProducts";
 import { MailingListSection } from "./components/mailing-list/MailingListSection";
 //import { UserReviews } from "./components/user-reviews/UserReviews";
@@ -27,7 +28,9 @@ function App() {
       <ServiceBanner />
       <FullRoomSection />
       <BestSellerSection />
-      <PromotionLarge />
+      <PromotionLarge>
+        <PromoCTA />
+      </PromotionLarge>
       <MailingListSection />
 
       <Footer />

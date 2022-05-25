@@ -1,12 +1,32 @@
 @use "../../styles/vars.scss";
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: tomato;
-  padding: 5em 1em;
+  display: grid;
+  justify-items: center;
   text-align: center;
+  will-change: auto;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: var(--bgPosition);
+  background-image: var(--bgImg);
+  transition: background-position 160ms ease-in-out;
+}
+.overlay {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  background-color: vars.$theme-dark-bg;
+}
+
+.inner_container {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: vars.$spacing-xlarge vars.$spacing-small;
 }
 
 .width_constraint {
@@ -14,6 +34,63 @@
   max-width: vars.$breakpoint-lg;
 }
 
-.inner_container {
-  background-color: aqua;
+.cta_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vars.$spacing-xsmall;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: vars.$font-color-secondary;
+  border: 1rem solid vars.$theme-main;
+  padding: vars.$spacing-medium vars.$spacing-xsmall;
+  font-size: vars.$font-size-special;
+  transition: max-width vars.$transition-short ease-in-out;
+}
+.cta_container h2 {
+  font-weight: vars.$font-w-bold-less;
+  font-style: italic;
+}
+
+.promo_p {
+  font-family: vars.$font-stack-title;
+  font-size: vars.$font-size-banner;
+  font-weight: bold;
+  margin-top: vars.$spacing-small;
+  margin-bottom: vars.$spacing-small;
+}
+
+.cta_button {
+  border-radius: 5px;
+  margin-top: vars.$spacing-xsmall;
+  border: thin solid vars.$theme-accent;
+  height: vars.$spacing-medium;
+  width: vars.$sizing-large;
+  background-color: vars.$theme-main;
+}
+
+.cta_button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: vars.$breakpoint-xs) {
+  .inner_container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
+
+  .cta_container h2 {
+    font-size: vars.$font-size-h3;
+    font-style: italic;
+  }
+
+  .promo_p {
+    font-size: vars.$font-size-h1;
+  }
 }
