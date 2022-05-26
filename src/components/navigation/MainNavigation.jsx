@@ -10,7 +10,7 @@ const MainNavigation = (props) => (
         </div>
 
         <div class={[styles.item, styles.links_container].join(" ")}>
-          <button>Home</button> {/* nav */}
+          <button data-active>Home</button> {/* nav */}
           <button>About Us</button>
           <button>Shop</button>
           <button>Contact</button>

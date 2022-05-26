@@ -42,18 +42,22 @@
 }
 
 .logo_container {
-  font-size: vars.$font-size-h2;
+  font-size: vars.$font-size-h3;
+  font-weight: vars.$font-w-bold-less;
 }
 
 .links_container {
   flex-grow: 1;
-  display: flex;
   gap: vars.$spacing-small;
+  font-size: vars.$font-size-special;
 }
-.links_container button {
+.links_container > button {
   border: none;
   background-color: transparent;
   color: vars.$font-color-secondary;
+}
+.links_container > button[data-active] {
+  color: vars.$font-color-main;
 }
 
 .cart_container::before {
