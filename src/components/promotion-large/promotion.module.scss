@@ -43,7 +43,7 @@
   height: 100%;
   text-align: center;
   color: vars.$font-color-secondary;
-  border: 1rem solid vars.$theme-main;
+  border: vars.$spacing-xsmall solid vars.$theme-main;
   padding: vars.$spacing-medium vars.$spacing-xsmall;
   font-size: vars.$font-size-special;
   transition: max-width vars.$transition-short ease-in-out;
@@ -85,12 +85,16 @@
     padding: vars.$spacing-medium vars.$spacing-xsmall;
   }
 
+  .cta_container {
+    border-width: calc(vars.$sizing-xsmall * 0.2);
+  }
+
   .cta_container h2 {
     font-size: vars.$font-size-h3;
     font-style: italic;
   }
 
   .promo_p {
-    font-size: vars.$font-size-h1;
+    font-size: vars.$font-size-h2;
   }
 }

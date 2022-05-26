@@ -74,6 +74,9 @@
   color: vars.$font-color-secondary;
   cursor: pointer;
 }
+.item:first-of-type {
+  min-width: 382px;
+}
 .item:first-of-type > h3 {
   color: vars.$theme-main;
 }
@@ -112,7 +115,15 @@
 }
 
 @media (max-width: vars.$breakpoint-md) {
+  .container {
+    padding: vars.$spacing-large vars.$spacing-medium;
+  }
+
   .inner_container {
     flex-wrap: wrap;
+  }
+
+  .item:first-of-type {
+    min-width: 0;
   }
 }
