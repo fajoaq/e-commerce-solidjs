@@ -3,7 +3,7 @@ import { throttle } from "lodash";
 import styles from "./promotion.module.scss";
 
 const PromotionLarge = (props) => {
-  const [bgPosY, setBgPosY] = createSignal(10);
+  const [bgPosY, setBgPosY] = createSignal(200);
   let oldYValue = 0;
   let newYValue = 0;
 
@@ -24,15 +24,16 @@ const PromotionLarge = (props) => {
   };
 
   const onScroll = () => {
-    if (bgPosY > 150 || bgPosY < -50) {
+    if (bgPosY() > 200 || bgPosY() < -200) {
+      oldYValue = 10;
       setBgPosY(10);
       return;
     }
 
-    setBgPosY(bgPosY() + getScrollDirection() * 6);
+    setBgPosY(bgPosY() + getScrollDirection() * 3);
   };
 
-  const throttledOnScroll = () => throttle(onScroll, 100);
+  const throttledOnScroll = () => throttle(onScroll, 60);
 
   createEffect(() => {
     window.addEventListener("scroll", throttledOnScroll());
