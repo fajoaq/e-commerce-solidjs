@@ -39,6 +39,11 @@
   display: block;
   aspect-ratio: 6/5;
   margin-bottom: vars.$spacing-xsmall;
+  transition: transform calc(vars.$transition-short - 100ms) ease-in-out;
+}
+.item > img:hover {
+  transform: scale(1.02);
+  transition: transform calc(vars.$transition-short - 100ms) ease-in-out;
 }
 .item > span {
   font-size: vars.$font-size-h3;
