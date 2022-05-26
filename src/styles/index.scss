@@ -16,9 +16,13 @@ h4,
 p,
 figure,
 blockquote,
+address,
 dl,
 dd {
   margin: 0;
+}
+address {
+  font-style: normal;
 }
 h1,
 h2,

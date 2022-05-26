@@ -4,22 +4,115 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4em 2em;
-  background-color: red;
-  text-align: center;
+  text-align: left;
+  line-height: vars.$spacing-small;
+  background-color: black;
+  color: vars.$theme-accent;
+  padding: vars.$spacing-large vars.$spacing-medium;
 }
 
 .inner_container {
   display: flex;
+  align-items: start;
+  column-gap: vars.$spacing-xsmall;
+  row-gap: vars.$spacing-small;
   width: 100%;
   max-width: vars.$breakpoint-lg;
+}
+.inner_container nav {
+  display: flex;
+  flex-direction: column;
+}
+.inner_container p {
+  font-size: vars.$font-size-special;
+}
+
+.footer_nav_container {
+  max-width: calc(vars.$sizing-medium);
+  line-height: vars.$spacing-medium;
+}
+.footer_nav_container button {
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-align: left;
+  background-color: transparent;
+  color: vars.$font-color-secondary;
+}
+.footer_nav_container button::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid vars.$theme-accent;
+  transform-origin: 0;
+  transform: scaleX(0);
+  transition: transform vars.$transition-short ease-in-out;
+}
+.footer_nav_container button[data-active]::after,
+.footer_nav_container button:hover::after {
+  content: "";
+  transform: scaleX(1);
+  transition: transform vars.$transition-short ease-in-out;
 }
 
 .item {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  flex-direction: column;
+  gap: calc(vars.$spacing-small - 0.6rem);
   width: 100%;
-  min-height: 3rem;
-  background-color: aquamarine;
+}
+.item a {
+  text-decoration: none;
+  color: vars.$font-color-secondary;
+  cursor: pointer;
+}
+.item:first-of-type > h3 {
+  color: vars.$theme-main;
+}
+
+.icons_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vars.$spacing-xsmall;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: white;
+}
+.icon > span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: vars.$theme-social-icons;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  -webkit-mask-image: var(--bgImg);
+  mask-image: var(--bgImg);
+  transition: background-color 360ms ease-in-out;
+}
+.icon:hover > span {
+  background-color: vars.$theme-main;
+  transition: background-color 360ms ease-in-out;
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .inner_container {
+    flex-wrap: wrap;
+  }
 }
