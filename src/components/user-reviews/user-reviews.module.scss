@@ -5,9 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4em 2em 2em 2em;
-  background-color: violet;
   text-align: center;
+  padding: vars.$spacing-large vars.$spacing-medium;
 }
 
 .width_constraint {
@@ -15,24 +14,53 @@
   max-width: vars.$breakpoint-lg;
 }
 
-.header {
-  background-color: blue;
-  color: white;
-}
-
 .inner_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 4rem;
   width: 100%;
-  min-height: 3rem;
-  background-color: wheat;
+  margin-top: vars.$spacing-large;
 }
 
-.item {
+.inner_container > article {
+  display: flex;
+  gap: 1rem;
   min-height: 120px;
-  aspect-ratio: 4/3;
-  color: white;
-  background-color: black;
+  max-width: 382px;
+  text-align: left;
+}
+.inner_container > article > img {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 25%;
+}
+
+.quote_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.quote_container > q {
+  font-size: vars.$font-size-special;
+  font-style: italic;
+  color: vars.$font-color-main-off;
+}
+
+@media (max-width: vars.$breakpoint-xs) {
+  .container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
+
+  .inner_container > article {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quote_container {
+    align-items: center;
+    text-align: center;
+  }
 }
