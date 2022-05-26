@@ -8,6 +8,7 @@ import { PromotionLarge } from "./components/promotion-large/PromotionLarge";
 import { CallToAction as PromoCTA } from "./components/promotion-large/CallToAction";
 import { ProductShowcase } from "./components/common/product/ProductShowcase";
 import { MailingListSection } from "./components/mailing-list/MailingListSection";
+import { CallToAction as MailingCTA } from "./components/mailing-list/CallToActions";
 //import { UserReviews } from "./components/user-reviews/UserReviews";
 import { Footer } from "./components/footer/Footer";
 
@@ -122,7 +123,9 @@ function App() {
         <h2>Featured Products</h2>
       </ProductShowcase>
 
-      <MailingListSection />
+      <MailingListSection>
+        <MailingCTA />
+      </MailingListSection>
 
       <Footer />
     </div>

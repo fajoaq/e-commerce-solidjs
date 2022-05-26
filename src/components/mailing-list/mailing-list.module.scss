@@ -1,12 +1,32 @@
 @use "../../styles/vars.scss";
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5em 1em;
-  background-color: yellowgreen;
+  display: grid;
+  justify-items: center;
   text-align: center;
+  will-change: auto;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: var(--bgPosition);
+  background-image: var(--bgImg);
+  transition: background-position 160ms ease-in-out;
+}
+.overlay {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  background-color: vars.$theme-dark-bg;
+}
+
+.inner_container {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: vars.$spacing-xlarge vars.$spacing-small;
 }
 
 .width_constraint {
@@ -14,11 +34,70 @@
   max-width: vars.$breakpoint-lg;
 }
 
-.inner_container {
+.cta_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vars.$spacing-xsmall;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: vars.$font-color-secondary;
+  font-size: vars.$font-size-subtitle;
+  transition: max-width vars.$transition-short ease-in-out;
+}
+.cta_container h2 {
+  font-weight: vars.$font-w-bold-less;
+  font-style: italic;
+}
+.cta_container input {
+  min-height: vars.$sizing-xsmall;
+  width: 100%;
+  max-width: 40%;
+  border: 2px solid white;
+  padding-left: 1em;
+  font-style: italic;
+  background-color: vars.$theme-lght-bg;
+}
+
+.promo_p {
+  font-family: vars.$font-stack-title;
+  font-size: vars.$font-size-h2;
+  font-weight: bold;
+  margin-top: vars.$spacing-xsmall;
+  margin-bottom: vars.$spacing-xsmall;
+}
+
+.cta_button {
+  border-radius: 5px;
+  margin-top: vars.$spacing-xsmall;
+  border: thin solid vars.$theme-accent;
+  height: vars.$spacing-medium;
+  width: vars.$sizing-large;
+  background-color: vars.$theme-main;
+}
+
+.cta_button a {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   width: 100%;
-  min-height: 3rem;
-  background-color: tan;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: vars.$breakpoint-xs) {
+  .inner_container {
+    padding: vars.$spacing-medium vars.$spacing-xsmall;
+  }
+
+  .cta_container h2 {
+    font-size: vars.$font-size-h3;
+    font-style: italic;
+  }
+
+  .promo_p {
+    font-size: vars.$font-size-h1;
+  }
 }
