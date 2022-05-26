@@ -4,7 +4,10 @@ const MainNavigation = (props) => (
   <>
     <div class={styles.container_spacer} />
     <div class={styles.container} {...props}>
-      <div class={[styles.width_constraint, styles.inner_container].join(" ")}>
+      <nav
+        class={[styles.width_constraint, styles.inner_container].join(" ")}
+        aria-label="Main"
+      >
         <div class={[styles.item, styles.logo_container].join(" ")}>
           <p>Brand Name</p> {/* logo */}
         </div>
@@ -19,7 +22,7 @@ const MainNavigation = (props) => (
         <div class={[styles.item, styles.cart_container].join(" ")}>
           <span class={styles.cart_item_count}>3</span> {/* cart */}
         </div>
-      </div>
+      </nav>
     </div>
   </>
 );
