@@ -1,4 +1,4 @@
-import { createSignal, createEffect } from "solid-js";
+import { createSignal, createEffect, onCleanup } from "solid-js";
 import { throttle } from "lodash";
 import styles from "./promotion.module.scss";
 
@@ -29,11 +29,17 @@ const PromotionLarge = (props) => {
       return;
     }
 
-    setBgPosY(bgPosY() + getScrollDirection() * 4);
+    setBgPosY(bgPosY() + getScrollDirection() * 6);
   };
 
+  const throttledOnScroll = () => throttle(onScroll, 100);
+
   createEffect(() => {
-    window.addEventListener("scroll", throttle(onScroll, 160));
+    window.addEventListener("scroll", throttledOnScroll());
+  });
+
+  onCleanup(() => {
+    window.removeEventListener("scroll", throttledOnScroll);
   });
 
   return (
