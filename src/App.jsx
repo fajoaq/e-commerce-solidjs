@@ -4,10 +4,9 @@ import { Hero } from "./components/hero/Hero";
 import { CallToAction } from "./components/hero/CallToAction";
 import { ServiceBanner } from "./components/service-banner/ServiceBanner";
 import { FullRoomSection } from "./components/full-rooms/FullRoomSection";
-import { BestSellerSection } from "./components/best-sellers/BestSellersSection";
 import { PromotionLarge } from "./components/promotion-large/PromotionLarge";
 import { CallToAction as PromoCTA } from "./components/promotion-large/CallToAction";
-//import { FeaturedProducts } from "./components/featured-products/FeaturedProducts";
+import { ProductShowcase } from "./components/common/product/ProductShowcase";
 import { MailingListSection } from "./components/mailing-list/MailingListSection";
 //import { UserReviews } from "./components/user-reviews/UserReviews";
 import { Footer } from "./components/footer/Footer";
@@ -18,19 +17,111 @@ const heroImgUrlArr = [
   "bg/hero-bg-3.jpg",
 ];
 
+const BEST_SELLERS = [
+  {
+    src: "bg/featured-sofa.jpg",
+    alt: "picture of a Wooden Dining Table",
+    title: "Wooden Dining Table",
+    price: 299,
+  },
+  {
+    src: "bg/featured-table.jpg",
+    alt: "picture of a table",
+    title: "L-Sectional",
+    price: 299,
+  },
+  {
+    src: "bg/featured-bed.jpg",
+    alt: "picture of a bed",
+    title: "Recliner",
+    price: 299,
+  },
+  {
+    src: "bg/featured-dresser.jpg",
+    alt: "picture of a dresser drawer",
+    title: "End Table",
+    price: 299,
+  },
+];
+
+const FEATURED_PRODUCTS = [
+  {
+    src: "bg/featured-sofa.jpg",
+    alt: "picture of a Wooden Dining Table",
+    title: "Wooden Dining Table",
+    price: 299,
+  },
+  {
+    src: "bg/featured-table.jpg",
+    alt: "picture of a table",
+    title: "L-Sectional",
+    price: 299,
+  },
+  {
+    src: "bg/featured-bed.jpg",
+    alt: "picture of a bed",
+    title: "Recliner",
+    price: 299,
+  },
+  {
+    src: "bg/featured-dresser.jpg",
+    alt: "picture of a dresser drawer",
+    title: "End Table",
+    price: 299,
+  },
+  {
+    src: "bg/featured-bed.jpg",
+    alt: "picture of a bed",
+    title: "Recliner",
+    price: 299,
+  },
+  {
+    src: "bg/featured-dresser.jpg",
+    alt: "picture of a dresser drawer",
+    title: "End Table",
+    price: 299,
+  },
+  {
+    src: "bg/featured-bed.jpg",
+    alt: "picture of a bed",
+    title: "Recliner",
+    price: 299,
+  },
+  {
+    src: "bg/featured-dresser.jpg",
+    alt: "picture of a dresser drawer",
+    title: "End Table",
+    price: 299,
+  },
+];
+
 function App() {
   return (
     <div class={styles.App}>
       <MainNavigation />
+
       <Hero imgUrlList={heroImgUrlArr}>
         <CallToAction />
       </Hero>
+
       <ServiceBanner />
+
       <FullRoomSection />
-      <BestSellerSection />
+
+      <ProductShowcase products={BEST_SELLERS}>
+        <p>Start By Browsing What People Love</p>
+        <h2>Best Sellers</h2>
+      </ProductShowcase>
+
       <PromotionLarge>
         <PromoCTA />
       </PromotionLarge>
+
+      <ProductShowcase products={FEATURED_PRODUCTS}>
+        <p>Our Staff's Personal Picks</p>
+        <h2>Featured Products</h2>
+      </ProductShowcase>
+
       <MailingListSection />
 
       <Footer />
