@@ -1,15 +1,9 @@
 @use "../../styles/vars.scss";
 
 .container {
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.width_constraint {
-  width: 100%;
-  max-width: vars.$breakpoint-lg;
+  padding: vars.$spacing-xsmall vars.$spacing-medium;
 }
 
 .inner_container {
@@ -23,8 +17,8 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin: 2rem;
+  gap: vars.$spacing-xsmall;
+  margin: vars.$spacing-small;
 }
 .feature {
   display: flex;

@@ -1,4 +1,5 @@
-import styles from "./styles/App.module.scss";
+//import styles from "./styles/App.module.scss";
+import appstyles from "./styles/App.module.scss";
 import { MainNavigation } from "./components/navigation/MainNavigation";
 import { Hero } from "./components/hero/Hero";
 import { CallToAction } from "./components/hero/CallToAction";
@@ -125,7 +126,7 @@ const CUSTOMER_QUOTES = [
 
 function App() {
   return (
-    <div class={styles.App}>
+    <div class={appstyles.App}>
       <MainNavigation />
 
       <Hero imgUrlList={heroImgUrlArr}>

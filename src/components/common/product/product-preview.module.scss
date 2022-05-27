@@ -1,10 +1,9 @@
 @use "../../../styles/vars.scss";
 
 .container {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: vars.$spacing-large vars.$spacing-medium;
+  text-align: center;
 }
 .container > p {
   font-size: vars.$font-size-special;
@@ -21,10 +20,8 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  text-align: center;
   column-gap: vars.$spacing-xsmall * 0.6;
   row-gap: vars.$spacing-small;
-
   padding-top: vars.$spacing-xsmall;
 }
 
@@ -75,10 +72,6 @@
   }
 }
 @media (max-width: vars.$breakpoint-xs) {
-  .container {
-    padding: vars.$spacing-medium vars.$spacing-xsmall;
-  }
-
   .item {
     flex-basis: 100%;
   }

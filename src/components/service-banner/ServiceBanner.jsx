@@ -1,8 +1,16 @@
 import styles from "./service-banner.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 const ServiceBanner = (props) => (
-  <div class={styles.container} {...props}>
-    <div class={[styles.width_constraint, styles.inner_container].join(" ")}>
+  <div
+    class={[styles.container, appstyles.container__global].join(" ")}
+    {...props}
+  >
+    <div
+      class={[styles.inner_container, appstyles.width_constraint__global].join(
+        " "
+      )}
+    >
       <div class={styles.feature_container}>
         <div
           class={styles.features_icon}

@@ -1,7 +1,11 @@
 import styles from "./footer.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 const Footer = (props) => (
-  <div class={styles.container} {...props}>
+  <div
+    class={[styles.container, appstyles.container__global].join(" ")}
+    {...props}
+  >
     <div class={styles.inner_container}>
       <article class={styles.item}>
         <h3>Business Name</h3>

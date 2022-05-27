@@ -1,12 +1,13 @@
 @use "../../styles/vars.scss";
 
+$nav-height: 84px;
+
 .container {
   position: fixed;
-  display: flex;
-  justify-content: center;
+  top: 0;
   align-items: center;
   width: 100%;
-  height: 84px;
+  height: $nav-height;
   text-align: center;
   z-index: 999;
   padding: vars.$spacing-xsmall;
@@ -14,13 +15,8 @@
 }
 
 .container_spacer {
-  height: 84px;
+  height: $nav-height;
   padding: vars.$spacing-xsmall;
-}
-
-.width_constraint {
-  width: 100%;
-  max-width: vars.$breakpoint-lg;
 }
 
 .inner_container {

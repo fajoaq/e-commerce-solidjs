@@ -1,10 +1,14 @@
 import { For } from "solid-js";
 import styles from "./product-preview.module.scss";
+import appstyles from "../../../styles/App.module.scss";
 
 import { ProductPreview } from "./ProductPreview";
 
 const ProductShowcase = (props) => (
-  <div class={styles.container} {...props}>
+  <div
+    class={[styles.container, appstyles.container__global].join(" ")}
+    {...props}
+  >
     {props.children}
 
     <div class={styles.inner_container}>

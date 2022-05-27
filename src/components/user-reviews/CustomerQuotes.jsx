@@ -1,10 +1,14 @@
 import { For } from "solid-js";
 import styles from "./user-reviews.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 import { UserReview } from "./UserReview";
 
 const CustomerQuotes = (props) => (
-  <div class={styles.container} {...props}>
+  <div
+    class={[styles.container, appstyles.container__global].join(" ")}
+    {...props}
+  >
     {props.children}
 
     <div class={styles.inner_container}>

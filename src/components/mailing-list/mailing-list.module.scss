@@ -1,5 +1,7 @@
 @use "../../styles/vars.scss";
 
+$bg-p-transition-speed: 160ms;
+
 .container {
   display: grid;
   justify-items: center;
@@ -10,7 +12,7 @@
   background-repeat: no-repeat;
   background-position: var(--bgPosition);
   background-image: var(--bgImg);
-  transition: background-position 160ms ease-in-out;
+  transition: background-position $bg-p-transition-speed ease-in-out;
 }
 .overlay {
   grid-column: 1;
@@ -27,11 +29,6 @@
   height: 100%;
   z-index: 2;
   padding: vars.$spacing-xlarge vars.$spacing-small;
-}
-
-.width_constraint {
-  width: 100%;
-  max-width: vars.$breakpoint-lg;
 }
 
 .cta_container {
@@ -53,9 +50,9 @@
 .cta_container input {
   min-height: vars.$sizing-xsmall;
   width: 100%;
-  max-width: 40%;
+  max-width: 36%;
   border: 2px solid white;
-  padding-left: 1em;
+  padding-left: 0.6em;
   font-style: italic;
   background-color: vars.$theme-lght-bg;
 }
@@ -87,9 +84,15 @@
   cursor: pointer;
 }
 
+@media (max-width: vars.$breakpoint-lg) {
+  .cta_container input {
+    max-width: 80%;
+  }
+}
+
 @media (max-width: vars.$breakpoint-xs) {
   .inner_container {
-    padding: vars.$spacing-medium vars.$spacing-xsmall;
+    padding: vars.$spacing-large vars.$spacing-xsmall;
   }
 
   .cta_container h2 {
@@ -97,7 +100,7 @@
     font-style: italic;
   }
 
-  .promo_p {
-    font-size: vars.$font-size-h1;
+  .cta_container > .promo_p {
+    font-size: vars.$font-size-h2;
   }
 }

@@ -2,16 +2,12 @@
 
 .container {
   position: relative;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
-  padding: vars.$spacing-xlarge vars.$spacing-small;
 }
 
-.width_constraint {
-  width: 100%;
-  max-width: vars.$breakpoint-lg;
+.block-padding {
+  padding: vars.$spacing-xlarge vars.$spacing-medium;
 }
 
 .inner_container {
@@ -89,10 +85,6 @@
   }
 }
 @media (max-width: vars.$breakpoint_xs) {
-  .container {
-    padding: vars.$spacing-medium vars.$spacing-xsmall;
-  }
-
   .cta_container {
     padding: vars.$spacing-small vars.$spacing-xsmall;
   }

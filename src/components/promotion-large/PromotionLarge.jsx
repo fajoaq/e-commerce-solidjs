@@ -1,6 +1,7 @@
 import { createSignal, createEffect, onCleanup } from "solid-js";
 import { throttle } from "lodash";
 import styles from "./promotion.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 const PromotionLarge = (props) => {
   const [bgPosY, setBgPosY] = createSignal(200);
@@ -48,7 +49,12 @@ const PromotionLarge = (props) => {
       class={styles.container}
       style={`--bgPosition: 50% ${bgPosY()}px;--bgImg: url(/bg/promo-bg.jpg);`}
     >
-      <div class={[styles.inner_container, styles.width_constraint].join(" ")}>
+      <div
+        class={[
+          styles.inner_container,
+          appstyles.width_constraint__global,
+        ].join(" ")}
+      >
         {props.children}
       </div>
 

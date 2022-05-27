@@ -29,11 +29,6 @@
   padding: vars.$spacing-xlarge vars.$spacing-small;
 }
 
-.width_constraint {
-  width: 100%;
-  max-width: vars.$breakpoint-lg;
-}
-
 .cta_container {
   display: flex;
   flex-direction: column;

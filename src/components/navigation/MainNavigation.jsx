@@ -1,11 +1,18 @@
 import styles from "./main-navigation.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 const MainNavigation = (props) => (
   <>
     <div class={styles.container_spacer} />
-    <div class={styles.container} {...props}>
+    <div
+      class={[styles.container, appstyles.container__global].join(" ")}
+      {...props}
+    >
       <nav
-        class={[styles.width_constraint, styles.inner_container].join(" ")}
+        class={[
+          styles.inner_container,
+          appstyles.width_constraint__global,
+        ].join(" ")}
         aria-label="Main"
       >
         <div class={[styles.item, styles.logo_container].join(" ")}>

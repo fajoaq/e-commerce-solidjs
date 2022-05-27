@@ -1,17 +1,13 @@
 @use "../../styles/vars.scss";
 
-.bg_color {
-  background-color: vars.$theme-accent;
-}
 .container {
   position: relative;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   z-index: 1;
   gap: vars.$spacing-medium;
   padding: vars.$spacing-medium;
+  background-color: vars.$theme-accent;
 }
 .container .cta_container:last-of-type {
   flex-basis: 76%;
@@ -42,7 +38,7 @@
   transition: background-color vars.$transition-short ease-in-out;
 }
 .cta_container > h2 {
-  margin-bottom: 1rem;
+  margin-bottom: vars.$spacing-xsmall;
 }
 
 .cta_button {
@@ -82,7 +78,7 @@
 }
 @media (max-width: vars.$breakpoint_xs) {
   .container {
-    padding: vars.$spacing-medium vars.$spacing-xsmall;
+    padding: vars.$spacing-large vars.$spacing-xsmall;
   }
 
   .cta_container {

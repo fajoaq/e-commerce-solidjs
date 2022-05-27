@@ -1,14 +1,11 @@
 @use "../../styles/vars.scss";
 
 .container {
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: left;
   line-height: vars.$spacing-small;
   background-color: black;
   color: vars.$theme-accent;
-  padding: vars.$spacing-large vars.$spacing-medium;
 }
 
 .inner_container {
@@ -63,9 +60,9 @@
 
 .item {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: start;
-  flex-direction: column;
   gap: calc(vars.$spacing-small - 0.6rem);
   width: 100%;
 }
@@ -115,10 +112,6 @@
 }
 
 @media (max-width: vars.$breakpoint-md) {
-  .container {
-    padding: vars.$spacing-large vars.$spacing-medium;
-  }
-
   .inner_container {
     flex-wrap: wrap;
   }

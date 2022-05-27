@@ -1,5 +1,6 @@
 import { createSignal, createEffect, onCleanup } from "solid-js";
 import styles from "./hero.module.scss";
+import appstyles from "../../styles/App.module.scss";
 
 // props- imgUrlList - Array of strings
 
@@ -47,8 +48,13 @@ const Hero = (props) => {
   onCleanup(() => clearInterval(bgImageInterval));
 
   return (
-    <div class={styles.container}>
-      <div class={[styles.width_constraint, styles.inner_container].join(" ")}>
+    <div class={[styles.container, appstyles.container__global].join(" ")}>
+      <div
+        class={[
+          styles.inner_container,
+          appstyles.width_constraint__global,
+        ].join(" ")}
+      >
         {props.children}
       </div>
 
