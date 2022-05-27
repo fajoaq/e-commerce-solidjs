@@ -27,6 +27,7 @@ $bg-p-transition-speed: 160ms;
   grid-row: 1;
   width: 100%;
   height: 100%;
+  max-width: vars.$breakpoint-md;
   z-index: 2;
   padding: vars.$spacing-xlarge vars.$spacing-small;
 }
@@ -50,11 +51,12 @@ $bg-p-transition-speed: 160ms;
 .cta_container input {
   min-height: vars.$sizing-xsmall;
   width: 100%;
-  max-width: 36%;
+  max-width: 56%;
   border: 2px solid white;
   padding-left: 0.6em;
   font-style: italic;
   background-color: vars.$theme-lght-bg;
+  transition: max-width vars.$transition-short ease-in-out;
 }
 
 .promo_p {
