@@ -35,7 +35,7 @@ const BEST_SELLERS = [
   {
     src: "bg/featured-bed.jpg",
     alt: "picture of a bed",
-    title: "Recliner",
+    title: "Bed",
     price: 299,
   },
   {
@@ -62,7 +62,7 @@ const FEATURED_PRODUCTS = [
   {
     src: "bg/featured-bed.jpg",
     alt: "picture of a bed",
-    title: "Recliner",
+    title: "Bed",
     price: 299,
   },
   {
@@ -74,7 +74,7 @@ const FEATURED_PRODUCTS = [
   {
     src: "bg/featured-bed.jpg",
     alt: "picture of a bed",
-    title: "Recliner",
+    title: "Bed",
     price: 299,
   },
   {
@@ -86,7 +86,7 @@ const FEATURED_PRODUCTS = [
   {
     src: "bg/featured-bed.jpg",
     alt: "picture of a bed",
-    title: "Recliner",
+    title: "Bed",
     price: 299,
   },
   {
