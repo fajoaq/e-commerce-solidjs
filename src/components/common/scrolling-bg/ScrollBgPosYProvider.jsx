@@ -1,10 +1,10 @@
 import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
 import { throttle } from "lodash";
 
-const ScrollingBgProvider = (props) => {
+const ScrollBgPosYProvider = (props) => {
   const [local, others] = splitProps(props, [
-    "Component",
     "children",
+    "Component",
     "scrollThreshold",
   ]); // preserver reactivity while splitting props
   const [bgPosY, setBgPosY] = createSignal(100);
@@ -73,4 +73,4 @@ const ScrollingBgProvider = (props) => {
   );
 };
 
-export { ScrollingBgProvider };
+export { ScrollBgPosYProvider };

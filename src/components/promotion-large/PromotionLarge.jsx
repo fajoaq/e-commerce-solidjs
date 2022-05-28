@@ -3,8 +3,8 @@ import styles from "./promotion.module.scss";
 import appstyles from "../../styles/App.module.scss";
 
 const PromotionLarge = (props) => {
-  // preserver reactivity while splitting props
-  const [local, others] = splitProps(props, ["bgPosY"]);
+  // preserve reactivity while splitting props
+  const [local, others] = splitProps(props, ["children", "bgPosY"]);
 
   return (
     <div
@@ -19,7 +19,7 @@ const PromotionLarge = (props) => {
           appstyles.width_constraint__global,
         ].join(" ")}
       >
-        {props.children}
+        {local.children}
       </div>
 
       <div class={styles.overlay} />

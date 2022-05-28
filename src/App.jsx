@@ -11,7 +11,7 @@ import { MailingListSection } from "./components/mailing-list/MailingListSection
 import { CallToAction as MailingCTA } from "./components/mailing-list/CallToActions";
 import { CustomerQuotes } from "./components/user-reviews/CustomerQuotes";
 import { Footer } from "./components/footer/Footer";
-import { ScrollingBgProvider } from "./components/common/scrolling-bg/ScrollingBgProvider";
+import { ScrollBgPosYProvider } from "./components/common/scrolling-bg/ScrollBgPosYProvider";
 
 const heroImgUrlArr = [
   "bg/hero-bg-1.jpg",
@@ -143,14 +143,13 @@ function App() {
       </ProductShowcase>
 
       {/* HOC takes an jsx component and passes reactive props to it */}
-      <ScrollingBgProvider
+      {/* Promotion Section */}
+      <ScrollBgPosYProvider
         scrollThreshold={200}
-        Component={(props) => (
-          <PromotionLarge bgPosY={props.bgPosY}>
-            <PromoCTA />
-          </PromotionLarge>
-        )}
-      />
+        Component={(props) => <PromotionLarge {...props} />}
+      >
+        <PromoCTA />
+      </ScrollBgPosYProvider>
 
       <ProductShowcase products={FEATURED_PRODUCTS}>
         <p>Our Staff's Personal Picks</p>
