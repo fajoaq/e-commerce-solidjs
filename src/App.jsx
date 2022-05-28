@@ -19,6 +19,11 @@ const heroImgUrlArr = [
   "bg/hero-bg-3.jpg",
 ];
 
+const FULL_ROOM_FEATURED = [
+  { type: "Bedrooms", url: "bg/bedroom-full-room.jpg" },
+  { type: "Living Rooms", url: "bg/living-room-full-room.jpg" },
+];
+
 const BEST_SELLERS = [
   {
     src: "bg/featured-sofa.jpg",
@@ -135,7 +140,7 @@ function App() {
 
       <ServiceBanner />
 
-      <FullRoomSection />
+      <FullRoomSection featured={FULL_ROOM_FEATURED} />
 
       <ProductShowcase products={BEST_SELLERS}>
         <p>Start By Browsing What People Love</p>

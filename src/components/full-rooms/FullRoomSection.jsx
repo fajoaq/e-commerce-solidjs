@@ -1,35 +1,55 @@
 import styles from "./room-section.module.scss";
 import appstyles from "../../styles/App.module.scss";
+import { createEffect, For, splitProps } from "solid-js";
 
-const FullRoomSection = (props) => (
-  <div
-    class={[styles.container, appstyles.container__global].join(" ")}
-    {...props}
-  >
-    <div class={styles.cta_container} {...props}>
-      <h2>Bedrooms</h2>
-      <p>From 149.99</p>
-      <div class={styles.cta_button}>
-        <a>Shop Now</a>
-      </div>
+import { SetImagesFromArray } from "../../utils/set-images-from-array";
 
-      <div class={styles.bg}>
-        <img src="bg/bedroom-full-room.jpg" alt="Gallery image one." />
-      </div>
+const dataPreLoad =
+  "data:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAF0lEQVR42mP8tZnhPwMFgHHUgFEDgAAAXXgYFnuWxGkAAAAASUVORK5CYII=";
+
+const startingPriceList = {
+  bedrooms: "149.99",
+  "living rooms": "200.00",
+};
+
+const FullRoomSection = (props) => {
+  const [local, others] = splitProps(props, ["featured"]);
+
+  createEffect(() => {
+    let imgNodeList = document.querySelectorAll(".full-room-bg > img");
+    const urlList = local.featured.map((item) => item.url);
+
+    // sets the "src" attribute to the nodes in 1st argument, from url list in 2nd argument
+    // optionaly takes a callback function
+    SetImagesFromArray(imgNodeList, urlList);
+  });
+
+  return (
+    <div
+      class={[styles.container, appstyles.container__global].join(" ")}
+      {...others}
+    >
+      <For each={local.featured}>
+        {(item) => (
+          <div class={styles.cta_container}>
+            <h2>{item.type}</h2>
+            <p>From &#36;{startingPriceList[item.type.toLowerCase()]}</p>
+            <div class={styles.cta_button}>
+              <a>Shop Now</a>
+            </div>
+
+            <div class={["full-room-bg", styles.bg].join(" ")}>
+              <img
+                class={styles.loading}
+                src={dataPreLoad}
+                alt={`picture of featured ${item.type}`}
+              />
+            </div>
+          </div>
+        )}
+      </For>
     </div>
-
-    <div class={styles.cta_container} {...props}>
-      <h2>Living Rooms</h2>
-      <p>From 149.99</p>
-      <div class={styles.cta_button}>
-        <a>Shop Now</a>
-      </div>
-
-      <div class={styles.bg}>
-        <img src="bg/living-room-full-room.jpg" alt="Gallery image two." />
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export { FullRoomSection };

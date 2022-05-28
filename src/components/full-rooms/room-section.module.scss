@@ -64,16 +64,40 @@
   inset: 0;
   z-index: -1;
 }
-.bg img {
+.bg > img {
+  position: relative;
   min-height: 100%;
+  min-width: 100%;
   object-fit: cover;
   filter: grayscale(66%);
   transition: filter vars.$transition-short ease-in-out;
 }
 
+.loading {
+  animation: fadeIn 1s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: vars.$breakpoint-lg) {
   .container {
     flex-direction: column;
+  }
+
+  .bg > img {
+    top: -20%;
+  }
+}
+@media (max-width: vars.$breakpoint-md) {
+  .bg > img {
+    top: 0%;
   }
 }
 @media (max-width: vars.$breakpoint-xs) {

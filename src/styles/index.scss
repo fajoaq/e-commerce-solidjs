@@ -110,3 +110,16 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.img-loaded {
+  animation: fadeIn 1s !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
