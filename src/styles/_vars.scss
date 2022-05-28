@@ -31,13 +31,27 @@ $breakpoint-md: 900px;
 $breakpoint-sm: 600px;
 $breakpoint-xs: 460px;
 
-$font-size-normal: 1rem;
-$font-size-subtitle: 1.26rem;
-$font-size-special: 1.1rem;
-$font-size-banner: 4.2rem;
-$font-size-h1: 3.3rem;
-$font-size-h2: 2.4rem;
-$font-size-h3: 1.4rem;
-$font-size-h4: 0.96rem;
-
 $transition-short: 360ms;
+
+/* we need these variables to change inside media queries, using css var */
+:root {
+  --font-size-normal: 16px;
+  --font-size-banner: 4.2rem;
+  --font-size-h1: 3.3rem;
+  --font-size-h2: 2.4rem;
+  --font-size-h3: 1.46rem;
+  --font-size-h4: 0.96rem;
+  --font-size-special: 1.1rem;
+  --font-size-subtitle: 1.26rem;
+}
+
+@media (max-width: $breakpoint-sm) {
+  :root {
+    --font-size-banner: 2.2rem;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.26rem;
+    --font-size-special: 1rem;
+    --font-size-subtitle: 1.1rem;
+  }
+}

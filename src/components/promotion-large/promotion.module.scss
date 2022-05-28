@@ -40,7 +40,7 @@
   color: vars.$font-color-secondary;
   border: vars.$spacing-xsmall solid vars.$theme-main;
   padding: vars.$spacing-medium vars.$spacing-xsmall;
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
   transition: max-width vars.$transition-short ease-in-out;
 }
 .cta_container h2 {
@@ -50,7 +50,7 @@
 
 .promo_p {
   font-family: vars.$font-stack-title;
-  font-size: vars.$font-size-banner;
+  font-size: var(--font-size-banner);
   font-weight: bold;
   margin-top: vars.$spacing-small;
   margin-bottom: vars.$spacing-small;
@@ -82,14 +82,5 @@
 
   .cta_container {
     border-width: calc(vars.$sizing-xsmall * 0.2);
-  }
-
-  .cta_container h2 {
-    font-size: vars.$font-size-h3;
-    font-style: italic;
-  }
-
-  .promo_p {
-    font-size: vars.$font-size-h2;
   }
 }

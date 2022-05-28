@@ -43,8 +43,6 @@ const ScrollingBgProvider = (props) => {
   function onScroll() {
     if (tracking() === false || targetEl === undefined) return null;
 
-    console.log("onScroll");
-
     if (bgPosY() > local.scrollThreshold || bgPosY() < -local.scrollThreshold) {
       oldYValue = 100;
       setBgPosY(100);

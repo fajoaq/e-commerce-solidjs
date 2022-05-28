@@ -38,14 +38,14 @@ $nav-height: 84px;
 }
 
 .logo_container {
-  font-size: vars.$font-size-h3;
+  font-size: var(--font-size-h3);
   font-weight: vars.$font-w-bold-less;
 }
 
 .links_container {
   flex-grow: 1;
   gap: vars.$spacing-small;
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
 }
 .links_container > button {
   border: none;

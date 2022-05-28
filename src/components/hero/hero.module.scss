@@ -47,7 +47,7 @@
   color: vars.$font-color-secondary;
   background-color: vars.$theme-dark-bg;
   padding: vars.$spacing-medium vars.$spacing-small;
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
   transition: max-width vars.$transition-short ease-in-out;
 }
 
@@ -74,17 +74,17 @@
   cursor: pointer;
 }
 
-@media (max-width: vars.$breakpoint_md) {
+@media (max-width: vars.$breakpoint-md) {
   .cta_container {
-    max-width: 76%;
+    max-width: 80%;
   }
 }
-@media (max-width: vars.$breakpoint_sm) {
+@media (max-width: vars.$breakpoint-sm) {
   .cta_container {
     max-width: 100%;
   }
 }
-@media (max-width: vars.$breakpoint_xs) {
+@media (max-width: vars.$breakpoint-xs) {
   .cta_container {
     padding: vars.$spacing-small vars.$spacing-xsmall;
   }

@@ -26,7 +26,7 @@
   color: vars.$font-color-secondary;
   background-color: vars.$theme-dark-bg-off;
   padding: vars.$spacing-medium vars.$spacing-small;
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
   transition: background-color vars.$transition-short ease-in-out;
 }
 .cta_container:hover img {
@@ -71,12 +71,12 @@
   transition: filter vars.$transition-short ease-in-out;
 }
 
-@media (max-width: vars.$breakpoint_lg) {
+@media (max-width: vars.$breakpoint-lg) {
   .container {
     flex-direction: column;
   }
 }
-@media (max-width: vars.$breakpoint_xs) {
+@media (max-width: vars.$breakpoint-xs) {
   .container {
     padding: vars.$spacing-large vars.$spacing-xsmall;
   }

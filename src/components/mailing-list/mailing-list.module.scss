@@ -41,12 +41,14 @@ $bg-p-transition-speed: 160ms;
   height: 100%;
   text-align: center;
   color: vars.$font-color-secondary;
-  font-size: vars.$font-size-subtitle;
+  font-size: var(--font-size-subtitle);
   transition: max-width vars.$transition-short ease-in-out;
 }
 .cta_container h2 {
-  font-weight: vars.$font-w-bold-less;
-  font-style: italic;
+  margin-top: vars.$spacing-xsmall;
+  margin-bottom: vars.$spacing-xsmall;
+  font-family: vars.$font-stack-title;
+  font-weight: bold;
 }
 .cta_container input {
   min-height: vars.$sizing-xsmall;
@@ -57,14 +59,6 @@ $bg-p-transition-speed: 160ms;
   font-style: italic;
   background-color: vars.$theme-lght-bg;
   transition: max-width vars.$transition-short ease-in-out;
-}
-
-.promo_p {
-  font-family: vars.$font-stack-title;
-  font-size: vars.$font-size-h2;
-  font-weight: bold;
-  margin-top: vars.$spacing-xsmall;
-  margin-bottom: vars.$spacing-xsmall;
 }
 
 .cta_button {
@@ -95,14 +89,5 @@ $bg-p-transition-speed: 160ms;
 @media (max-width: vars.$breakpoint-xs) {
   .inner_container {
     padding: vars.$spacing-large vars.$spacing-xsmall;
-  }
-
-  .cta_container h2 {
-    font-size: vars.$font-size-h3;
-    font-style: italic;
-  }
-
-  .cta_container > .promo_p {
-    font-size: vars.$font-size-h2;
   }
 }

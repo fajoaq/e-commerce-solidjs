@@ -36,7 +36,7 @@
   gap: vars.$spacing-xsmall;
 }
 .quote_container > q {
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
   font-style: italic;
   color: vars.$font-color-main-off;
 }

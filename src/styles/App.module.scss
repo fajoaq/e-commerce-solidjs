@@ -20,7 +20,7 @@
   max-width: vars.$breakpoint-lg;
 }
 
-@media (max-width: vars.$breakpoint_xs) {
+@media (max-width: vars.$breakpoint-xs) {
   .container__global {
     padding: vars.$spacing-large vars.$spacing-xsmall;
   }

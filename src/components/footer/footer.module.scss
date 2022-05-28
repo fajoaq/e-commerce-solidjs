@@ -21,7 +21,7 @@
   flex-direction: column;
 }
 .inner_container p {
-  font-size: vars.$font-size-special;
+  font-size: var(--font-size-special);
 }
 
 .footer_nav_container {

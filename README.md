@@ -41,7 +41,7 @@ These are the steps I took to build my example E-Commerce site.
 
 - Added Sass for global variables within media queries
 
-  > @media (max-width: vars.$breakpoint_sm)
+  > @media (max-width: vars.$breakpoint-sm)
 
 - Added public folder for static file serve. Static assets can be handled in two different ways:
 

@@ -31,16 +31,16 @@ h4 {
   line-height: 1;
 }
 h1 {
-  font-size: vars.$font-size-h1;
+  font-size: var(--font-size-h1);
 }
 h2 {
-  font-size: vars.$font-size-h2;
+  font-size: var(--font-size-h2);
 }
 h3 {
-  font-size: vars.$font-size-h3;
+  font-size: var(--font-size-h3);
 }
 h4 {
-  font-size: vars.$font-size-h4;
+  font-size: var(--font-size-h4);
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -56,7 +56,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  font-size: 16px;
+  font-size: var(--font-size-normal);
   color: #333;
   background-color: vars.$theme-bg-color;
   min-height: 100vh;
