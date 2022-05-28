@@ -1,12 +1,19 @@
 import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
 import { throttle } from "lodash";
 
+/* 
+    Component - JSX wrapper, props are passed in
+    scrollThreshold - Bg scroll snapping threshold
+    observeOptions - Options passed to the observer
+*/
+
 const ScrollBgPosYProvider = (props) => {
   const [local, others] = splitProps(props, [
     "children",
     "Component",
     "scrollThreshold",
-  ]); // preserver reactivity while splitting props
+    "observeOptions",
+  ]); // preserve reactivity while splitting props
   const [bgPosY, setBgPosY] = createSignal(100);
   const [tracking, setTracking] = createSignal(undefined);
   let observer = undefined;
@@ -57,13 +64,17 @@ const ScrollBgPosYProvider = (props) => {
   createEffect(() => {
     targetEl = document.getElementById("promo-bg-target");
     window.addEventListener("scroll", throttledOnScroll);
-    observer = new IntersectionObserver(toggleTracking);
+    observer = new IntersectionObserver(
+      toggleTracking,
+      local.observeOptions ? local.observeOptions : {}
+    );
     observer.observe(targetEl);
   }); // setup on component mount
 
   onCleanup(() => {
     window.removeEventListener("scroll", throttledOnScroll);
     observer.unobserve(targetEl);
+    observer.disconnect();
   }); // cleanup on unmount
 
   return (
