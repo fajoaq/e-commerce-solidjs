@@ -73,6 +73,19 @@
   cursor: pointer;
 }
 
+.loading {
+  animation: fadeIn 1s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: vars.$breakpoint-md) {
   .item {
     flex-basis: 48%;

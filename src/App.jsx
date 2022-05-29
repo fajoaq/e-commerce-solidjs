@@ -142,7 +142,7 @@ function App() {
 
       <FullRoomSection featured={FULL_ROOM_FEATURED} />
 
-      <ProductShowcase products={BEST_SELLERS}>
+      <ProductShowcase query={{ content_type: "product" }}>
         <p>Start By Browsing What People Love</p>
         <h2>Best Sellers</h2>
       </ProductShowcase>
@@ -156,7 +156,7 @@ function App() {
         <PromoCTA />
       </ScrollBgPosYProvider>
 
-      <ProductShowcase products={FEATURED_PRODUCTS}>
+      <ProductShowcase query={{ content_type: "product" }}>
         <p>Our Staff's Personal Picks</p>
         <h2>Featured Products</h2>
       </ProductShowcase>

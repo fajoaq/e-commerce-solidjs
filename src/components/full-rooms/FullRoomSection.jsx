@@ -39,7 +39,7 @@ const FullRoomSection = (props) => {
             <div class={["full-room-bg", styles.bg].join(" ")}>
               <img
                 class={styles.loading}
-                src={CONSTANTS.imgPreLoad}
+                src={CONSTANTS.imgPreLoadSm}
                 alt={`picture of featured ${item.type}`}
               />
             </div>
