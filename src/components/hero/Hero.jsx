@@ -1,28 +1,27 @@
-import { createSignal, createEffect, onCleanup } from "solid-js";
 import styles from "./hero.module.scss";
 import appstyles from "../../styles/App.module.scss";
+import { createSignal, createEffect, onCleanup } from "solid-js";
 
-// props- imgUrlList - Array of strings
+import { PreLoadImagesFromArray } from "../../utils/preload-images";
+import { CONSTANTS } from "../../utils/constants";
+
+// props- imgUrlList - Array objs with "url" prop
 
 const Hero = (props) => {
-  const imgUrlList = props.imgUrlList;
-  const [bgImgUrlOne, setUrlOne] = createSignal(imgUrlList[0]);
-  const [bgImgUrlTwo, setUrlTwo] = createSignal(imgUrlList[0]);
+  const [bgImgUrlOne, setUrlOne] = createSignal(CONSTANTS.imgPreLoad);
+  const [bgImgUrlTwo, setUrlTwo] = createSignal(CONSTANTS.imgPreLoad);
+  let imgUrlList = [];
   let imgIndex = 0;
-  let slide1 = null;
-  let slide2 = null;
-
-  createEffect(() => {
-    slide1 = document.getElementById("slide-1");
-    slide2 = document.getElementById("slide-2");
-  });
+  let slide1 = undefined;
+  let slide2 = undefined;
+  let bgImageInterval = undefined;
 
   const setSlides = () => {
     if (!slide1 || !slide2) return;
 
+    const slide1State = slide1.hasAttribute("data-active");
+    const slide2State = slide2.hasAttribute("data-active");
     let index = imgIndex + 1;
-    let slide1State = slide1.hasAttribute("data-active");
-    let slide2State = slide2.hasAttribute("data-active");
 
     if (index >= imgUrlList.length) index = 0;
     // background slide
@@ -43,7 +42,24 @@ const Hero = (props) => {
     imgIndex = index;
   };
 
-  const bgImageInterval = setInterval(() => setSlides(), 4200);
+  function setUrl(resolvedImg, list = imgUrlList ? imgUrlList : []) {
+    list.push(resolvedImg);
+  }
+  function onCompleteImgFetch() {
+    slide1.classList.toggle("img-loaded");
+    slide2.classList.toggle("img-loaded");
+    setSlides();
+  }
+
+  createEffect(() => {
+    slide1 = document.getElementById("slide-1");
+    slide2 = document.getElementById("slide-2");
+    const urlList = props.imgUrlList.map((item) => item.url);
+
+    // preload images, onComplete fires after first image is preloaded
+    PreLoadImagesFromArray(urlList, setUrl, onCompleteImgFetch);
+    bgImageInterval = setInterval(() => setSlides(), 4000);
+  });
 
   onCleanup(() => clearInterval(bgImageInterval));
 
@@ -58,11 +74,15 @@ const Hero = (props) => {
         {props.children}
       </div>
 
-      <div id="slide-1" class={styles.slide} data-active={true}>
+      <div
+        id="slide-1"
+        class={[styles.load, styles.slide].join(" ")}
+        data-active={true}
+      >
         <img src={bgImgUrlOne()} alt="Gallery image one." />
       </div>
 
-      <div id="slide-2" class={styles.slide}>
+      <div id="slide-2" class={[styles.load, styles.slide].join(" ")}>
         <img src={bgImgUrlTwo()} alt="Gallery image two." />
       </div>
     </div>

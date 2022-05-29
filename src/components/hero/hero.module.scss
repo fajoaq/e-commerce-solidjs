@@ -74,6 +74,25 @@
   cursor: pointer;
 }
 
+.loading {
+  animation: fadeIn 1s infinite alternate;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.1;
+    max-height: 0;
+  }
+  50% {
+    opacity: 1;
+    max-height: 100%;
+  }
+  100% {
+    opacity: 0.1;
+    max-height: 0;
+  }
+}
+
 @media (max-width: vars.$breakpoint-md) {
   .cta_container {
     max-width: 80%;

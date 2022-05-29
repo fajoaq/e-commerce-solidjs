@@ -2,10 +2,8 @@ import styles from "./room-section.module.scss";
 import appstyles from "../../styles/App.module.scss";
 import { createEffect, For, splitProps } from "solid-js";
 
+import { CONSTANTS } from "../../utils/constants";
 import { SetImagesFromArray } from "../../utils/set-images-from-array";
-
-const dataPreLoad =
-  "data:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAYAAAA7KqwyAAAAF0lEQVR42mP8tZnhPwMFgHHUgFEDgAAAXXgYFnuWxGkAAAAASUVORK5CYII=";
 
 const startingPriceList = {
   bedrooms: "149.99",
@@ -41,7 +39,7 @@ const FullRoomSection = (props) => {
             <div class={["full-room-bg", styles.bg].join(" ")}>
               <img
                 class={styles.loading}
-                src={dataPreLoad}
+                src={CONSTANTS.imgPreLoad}
                 alt={`picture of featured ${item.type}`}
               />
             </div>

@@ -14,9 +14,9 @@ import { Footer } from "./components/footer/Footer";
 import { ScrollBgPosYProvider } from "./components/common/scrolling-bg/ScrollBgPosYProvider";
 
 const heroImgUrlArr = [
-  "bg/hero-bg-1.jpg",
-  "bg/hero-bg-2.jpg",
-  "bg/hero-bg-3.jpg",
+  { url: "bg/hero-bg-1.jpg" },
+  { url: "bg/hero-bg-2.jpg" },
+  { url: "bg/hero-bg-3.jpg" },
 ];
 
 const FULL_ROOM_FEATURED = [
