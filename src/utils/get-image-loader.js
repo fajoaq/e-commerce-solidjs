@@ -29,8 +29,8 @@ function GetImageLoader() {
 
         resolve(window.URL.createObjectURL(blob));
       };
-      xhr.onerror = function () {
-        reject();
+      xhr.onerror = function (err) {
+        reject(err);
       };
       xhr.send();
     });
