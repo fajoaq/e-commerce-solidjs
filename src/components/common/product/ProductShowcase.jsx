@@ -8,10 +8,10 @@ import { getProductData } from "../../../utils/get-product-data";
 import { doXTimes } from "../../../utils/do-x-times";
 
 const DUMMY_PRODUCT = {
-  src: CONSTANTS.imgPreLoadMd,
+  src: CONSTANTS.imgPreloadMd,
   alt: "                                ",
   title: "                       ",
-  price: 299,
+  price: "   ",
 };
 
 const ProductShowcase = (props) => {
