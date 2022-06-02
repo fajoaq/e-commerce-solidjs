@@ -14,8 +14,9 @@ import { CallToAction as MailingCTA } from "./components/mailing-list/CallToActi
 import { CustomerQuotes } from "./components/user-reviews/CustomerQuotes";
 import { Footer } from "./components/footer/Footer";
 import { ScrollBgPosYProvider } from "./components/common/scrolling-bg/ScrollBgPosYProvider";
-import { getProductData } from "./utils/get-product-data";
 import { CUSTOMER_QUOTES } from "./store/quotes.store";
+import { getProductData } from "./utils/get-product-data";
+import { InViewObserver } from "./components/common/observer/InViewObserver";
 import {
   FULL_ROOM_FEATURED,
   homepageProducts,
@@ -61,9 +62,12 @@ function App() {
     <div class={appstyles.App}>
       <MainNavigation />
 
-      <Hero imgUrlList={heroImgUrlArr}>
+      <InViewObserver
+        Component={(props) => <Hero {...props} slidesOn={props.inView} />}
+        imgUrlList={heroImgUrlArr}
+      >
         <CallToAction />
-      </Hero>
+      </InViewObserver>
 
       <ServiceBanner />
 
@@ -101,6 +105,7 @@ function App() {
       <CustomerQuotes userQuotes={CUSTOMER_QUOTES}>
         <h2>Satisfied Customer Quotes</h2>
       </CustomerQuotes>
+
       <Footer />
     </div>
   );

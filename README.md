@@ -48,3 +48,12 @@ These are the steps I took to build my example E-Commerce site.
   > Imported in JavaScript or referenced in templates/CSS via relative paths. Such references will be handled by webpack.
 
   > Placed in the public directory and referenced via absolute paths. These assets will simply be copied and not go through webpack.
+
+- Added a store for product and customer data. It's as simple as importing the "homepageProducts, setHomepageProducts" etc where needed.
+
+  import { createStore } from "solid-js/store";
+
+  const [homepageProducts, setHomepageProducts] = createStore({
+  featuredProducts: [],
+  bestSellers: [],
+  });

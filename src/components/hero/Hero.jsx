@@ -1,6 +1,6 @@
 import styles from "./hero.module.scss";
 import appstyles from "../../styles/App.module.scss";
-import { createSignal, createEffect, onCleanup } from "solid-js";
+import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
 
 import { PreLoadImagesFromArray } from "../../utils/preload-images";
 import { CONSTANTS } from "../../utils/constants";
@@ -8,6 +8,11 @@ import { CONSTANTS } from "../../utils/constants";
 // props- imgUrlList - Array objs with "url" prop
 
 const Hero = (props) => {
+  const [local, rest] = splitProps(props, [
+    "children",
+    "imgUrlList",
+    "slidesOn",
+  ]);
   const [bgImgUrlOne, setUrlOne] = createSignal(CONSTANTS.imgPlaceholderSm);
   const [bgImgUrlTwo, setUrlTwo] = createSignal(CONSTANTS.imgPlaceholderSm);
   let imgUrlList = [];
@@ -17,7 +22,7 @@ const Hero = (props) => {
   let bgImageInterval = undefined;
 
   const setSlides = () => {
-    if (!slide1 || !slide2) return;
+    if (!local.slidesOn || !slide1 || !slide2) return;
 
     const slide1State = slide1.hasAttribute("data-active");
     const slide2State = slide2.hasAttribute("data-active");
@@ -54,7 +59,7 @@ const Hero = (props) => {
   createEffect(() => {
     slide1 = document.getElementById("slide-1");
     slide2 = document.getElementById("slide-2");
-    const urlList = props.imgUrlList.map((item) => item.url);
+    const urlList = local.imgUrlList.map((item) => item.url);
 
     // preload images, onComplete fires after first image is preloaded
     PreLoadImagesFromArray(urlList, setUrl, onCompleteImgFetch);
@@ -64,14 +69,17 @@ const Hero = (props) => {
   onCleanup(() => clearInterval(bgImageInterval));
 
   return (
-    <div class={[styles.container, appstyles.container__global].join(" ")}>
+    <div
+      class={[styles.container, appstyles.container__global].join(" ")}
+      {...rest}
+    >
       <div
         class={[
           styles.inner_container,
           appstyles.width_constraint__global,
         ].join(" ")}
       >
-        {props.children}
+        {local.children}
       </div>
 
       <div
