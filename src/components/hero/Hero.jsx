@@ -8,8 +8,8 @@ import { CONSTANTS } from "../../utils/constants";
 // props- imgUrlList - Array objs with "url" prop
 
 const Hero = (props) => {
-  const [bgImgUrlOne, setUrlOne] = createSignal(CONSTANTS.imgPreLoadSm);
-  const [bgImgUrlTwo, setUrlTwo] = createSignal(CONSTANTS.imgPreLoadSm);
+  const [bgImgUrlOne, setUrlOne] = createSignal(CONSTANTS.imgPlaceholderSm);
+  const [bgImgUrlTwo, setUrlTwo] = createSignal(CONSTANTS.imgPlaceholderSm);
   let imgUrlList = [];
   let imgIndex = 0;
   let slide1 = undefined;

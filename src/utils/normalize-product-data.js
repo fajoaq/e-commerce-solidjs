@@ -7,6 +7,7 @@ function normalizeProductData(data) {
       alt: item.fields.description,
       title: item.fields.title,
       price: "299.99",
+      featuredLocations: item.fields.featuredLocations,
     })
   );
 

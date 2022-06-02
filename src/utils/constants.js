@@ -5,8 +5,8 @@ const dataPreLoadMd = `data:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYAAAA
   `;
 
 const CONSTANTS = {
-  imgPreLoadSm: dataPreloadSm,
-  imgPreloadMd: dataPreLoadMd,
+  imgPlaceholderSm: dataPreloadSm,
+  imgPlaceholderMd: dataPreLoadMd,
 };
 
 export { CONSTANTS };
