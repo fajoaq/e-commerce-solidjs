@@ -1,15 +1,14 @@
-import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
-
-let observingTotal = 0;
+import { createSignal, onCleanup, splitProps, onMount } from "solid-js";
 
 const InViewObserver = (props) => {
   const [local, rest] = splitProps(props, [
+    "id",
     "Component",
     "children",
+    "defaultState",
     "observeOptions",
   ]);
-  const [inView, setInView] = createSignal(true);
-  const observeId = observingTotal;
+  const [inView, setInView] = createSignal(local.defaultState || false);
   let observer = undefined;
 
   function toggleTracking(entries) {
@@ -17,15 +16,14 @@ const InViewObserver = (props) => {
     else setInView(false);
   }
 
-  createEffect(() => {
-    const targetEl = document.getElementById(`observeId-${observeId}`);
+  onMount(() => {
+    const targetEl = document.getElementById(local.id);
     observer = new IntersectionObserver(
       toggleTracking,
       local.observeOptions ? local.observeOptions : {}
     );
 
     observer.observe(targetEl);
-    observingTotal++;
   }); // setup on component mount
 
   onCleanup(() => {
@@ -34,7 +32,7 @@ const InViewObserver = (props) => {
   }); // cleanup on unmount
 
   return (
-    <local.Component id={`observeId-${observeId}`} inView={inView()} {...rest}>
+    <local.Component id={local.id} inView={inView()} {...rest}>
       {local.children}
     </local.Component>
   );

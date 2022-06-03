@@ -1,4 +1,4 @@
-import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
+import { createSignal, onCleanup, splitProps } from "solid-js";
 import { throttle } from "lodash";
 
 /* 
@@ -9,6 +9,7 @@ import { throttle } from "lodash";
 
 const ScrollBgPosYProvider = (props) => {
   const [local, others] = splitProps(props, [
+    "id",
     "children",
     "Component",
     "scrollThreshold",
@@ -61,15 +62,17 @@ const ScrollBgPosYProvider = (props) => {
 
   const throttledOnScroll = throttle(onScroll, 60);
 
-  createEffect(() => {
-    targetEl = document.getElementById("promo-bg-target");
+  function setTargetEl() {
+    targetEl = document.getElementById(local.id);
+
     window.addEventListener("scroll", throttledOnScroll);
     observer = new IntersectionObserver(
       toggleTracking,
       local.observeOptions ? local.observeOptions : {}
     );
+
     observer.observe(targetEl);
-  }); // setup on component mount
+  } // setup observer on Component mount
 
   onCleanup(() => {
     window.removeEventListener("scroll", throttledOnScroll);
@@ -78,7 +81,12 @@ const ScrollBgPosYProvider = (props) => {
   }); // cleanup on unmount
 
   return (
-    <local.Component {...others} bgPosY={bgPosY()}>
+    <local.Component
+      {...others}
+      id={local.id}
+      bgPosY={bgPosY()}
+      onLoad={setTargetEl}
+    >
       {local.children}
     </local.Component>
   );

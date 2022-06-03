@@ -3,9 +3,8 @@ import appstyles from "../../../styles/App.module.scss";
 import { For, splitProps } from "solid-js";
 
 import { CONSTANTS } from "../../../utils/constants";
-import { ProductPreview } from "./ProductPreview";
 import { doXTimes } from "../../../utils/do-x-times";
-
+import { ProductPreview } from "./ProductPreview";
 const DUMMY_PRODUCT = {
   src: CONSTANTS.imgPlaceholderMd,
   alt: "                                ",
@@ -14,7 +13,12 @@ const DUMMY_PRODUCT = {
 };
 
 const ProductShowcase = (props) => {
-  const [local, rest] = splitProps(props, ["children", "products", "loading"]);
+  const [local, rest] = splitProps(props, [
+    "children",
+    "products",
+    "inView",
+    "loading",
+  ]);
 
   let DUMMY_DATA = [];
 

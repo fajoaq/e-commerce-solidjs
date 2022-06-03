@@ -5,13 +5,12 @@ import { createSignal, createEffect, onCleanup, splitProps } from "solid-js";
 import { PreLoadImagesFromArray } from "../../utils/preload-images";
 import { CONSTANTS } from "../../utils/constants";
 
-// props- imgUrlList - Array objs with "url" prop
-
 const Hero = (props) => {
   const [local, rest] = splitProps(props, [
     "children",
     "imgUrlList",
     "slidesOn",
+    "inView",
   ]);
   const [bgImgUrlOne, setUrlOne] = createSignal(CONSTANTS.imgPlaceholderSm);
   const [bgImgUrlTwo, setUrlTwo] = createSignal(CONSTANTS.imgPlaceholderSm);
