@@ -58,9 +58,9 @@ const Footer = lazy(() =>
 );
 
 const heroImgUrlArr = [
-  { url: "bg/hero-bg-1.jpg" },
-  { url: "bg/hero-bg-2.jpg" },
-  { url: "bg/hero-bg-3.jpg" },
+  { url: "bg/hero/hero-bg-1" },
+  { url: "bg/hero/hero-bg-2" },
+  { url: "bg/hero/hero-bg-3" },
 ];
 
 const HomePageLayout = (props) => {

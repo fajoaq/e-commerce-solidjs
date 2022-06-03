@@ -13,9 +13,18 @@ const startingPriceList = {
 const FullRoomSection = (props) => {
   const [local, others] = splitProps(props, ["featured"]);
 
+  function setUrlList(list) {
+    let urlList = [];
+    if (window.innerWidth > CONSTANTS.mobileSize)
+      urlList = list.map((item) => item.url + ".jpg");
+    else urlList = list.map((item) => item.url + "-m.jpg");
+
+    return urlList;
+  }
+
   createEffect(() => {
     let imgNodeList = document.querySelectorAll(".full-room-bg > img");
-    const urlList = local.featured.map((item) => item.url);
+    const urlList = setUrlList(local.featured);
 
     // sets the "src" attribute to the nodes in 1st argument, from url list in 2nd argument
     // optionaly takes a callback function

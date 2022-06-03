@@ -6,8 +6,8 @@ const [homepageProducts, setHomepageProducts] = createStore({
 });
 
 const FULL_ROOM_FEATURED = [
-  { type: "Bedrooms", url: "bg/bedroom-full-room.jpg" },
-  { type: "Living Rooms", url: "bg/living-room-full-room.jpg" },
+  { type: "Bedrooms", url: "bg/bedroom-full-room" },
+  { type: "Living Rooms", url: "bg/living-room-full-room" },
 ];
 
 export { FULL_ROOM_FEATURED, homepageProducts, setHomepageProducts };
