@@ -1,6 +1,7 @@
 import appstyles from "../../styles/App.module.scss";
-import { lazy, splitProps } from "solid-js";
+import { createEffect, lazy, createSignal, createResource } from "solid-js";
 
+import { getProductData } from "../../utils/get-product-data";
 import { BelowFoldContainer } from "../../components/common/container/BelowFoldContainer";
 import { MainNavigation } from "../../components/navigation/MainNavigation";
 import { Hero } from "../../components/hero/Hero";
@@ -12,6 +13,7 @@ import { InViewObserver } from "../../components/common/observer/InViewObserver"
 import {
   FULL_ROOM_FEATURED,
   homepageProducts,
+  setHomepageProducts,
 } from "../../store/products.store";
 
 const MailingListSection = lazy(() =>
@@ -63,8 +65,41 @@ const heroImgUrlArr = [
   { url: "bg/hero/hero-bg-3" },
 ];
 
+const DEFAULT_QUERY = {
+  content_type: "product",
+  "fields.featuredLocations[exists]": true,
+};
+
 const HomePageLayout = (props) => {
-  const [local, rest] = splitProps(props, ["productData", "loading"]);
+  const [shouldFetchApi, setShouldFetchApi] = createSignal(false);
+  const [productData] = createResource(DEFAULT_QUERY, getProductData);
+
+  function onRenderBelowFold() {
+    setShouldFetchApi(true);
+  }
+
+  createEffect(async () => {
+    if (!shouldFetchApi()) return;
+
+    // get homepage featured products after init render
+    // these items are below the fold
+    if (productData.loading || homepageProducts.featuredProducts.length) return;
+
+    let featuredArr = [];
+    let bestSellerArr = [];
+
+    productData().forEach((prod) => {
+      const reducedLocationsArr = new Set(prod.featuredLocations);
+      if (reducedLocationsArr.has("featured_products")) featuredArr.push(prod);
+
+      if (reducedLocationsArr.has("best_sellers")) bestSellerArr.push(prod);
+    });
+
+    setHomepageProducts({
+      featuredProducts: featuredArr,
+      bestSellers: bestSellerArr,
+    });
+  });
 
   return (
     <>
@@ -92,11 +127,12 @@ const HomePageLayout = (props) => {
         class={appstyles.App}
         Component={(props) => <BelowFoldContainer {...props} />}
         observeOptions={{ threshold: 0.01, rootMargin: "180px" }}
+        callback={onRenderBelowFold}
       >
         {/* BEST SELLERS COMPONENT */}
         <ProductShowcase
           products={homepageProducts.bestSellers}
-          loading={local.loading}
+          loading={productData.loading}
         >
           <p>Start By Browsing What People Love</p>
           <h2>Best Sellers</h2>
@@ -114,7 +150,7 @@ const HomePageLayout = (props) => {
 
         <ProductShowcase
           products={homepageProducts.featuredProducts}
-          loading={local.loading}
+          loading={productData.loading}
         >
           <p>Our Staff's Personal Picks</p>
           <h2>Featured Products</h2>
