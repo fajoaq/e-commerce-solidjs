@@ -7,13 +7,16 @@ const InViewObserver = (props) => {
     "children",
     "defaultState",
     "observeOptions",
+    "callback",
   ]);
   const [inView, setInView] = createSignal(local.defaultState || false);
   let observer = undefined;
 
   function toggleTracking(entries) {
-    if (entries[0].isIntersecting) setInView(true);
-    else setInView(false);
+    if (entries[0].isIntersecting) {
+      if (local.callback) local.callback();
+      setInView(true);
+    } else setInView(false);
   }
 
   onMount(() => {
