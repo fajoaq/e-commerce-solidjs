@@ -1,6 +1,8 @@
 import styles from "./main-navigation.module.scss";
 import appstyles from "../../styles/App.module.scss";
 
+import { ShopButton } from "./ShopButton";
+
 const MainNavigation = (props) => (
   <>
     <div class={styles.container_spacer} />
@@ -18,11 +20,14 @@ const MainNavigation = (props) => (
         <div class={[styles.item, styles.logo_container].join(" ")}>
           <p>Brand Name</p> {/* logo */}
         </div>
-
+        {/* nav */}
         <div class={[styles.item, styles.links_container].join(" ")}>
-          <button data-active>Home</button> {/* nav */}
+          <button data-active>Home</button>
+
           <button>About Us</button>
-          <button>Shop</button>
+
+          <ShopButton />
+
           <button>Contact</button>
         </div>
 
