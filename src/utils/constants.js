@@ -8,6 +8,10 @@ const CONSTANTS = {
   imgPlaceholderSm: dataPreloadSm,
   imgPlaceholderMd: dataPreLoadMd,
   mobileSize: 600,
+  deviceTypes: {
+    mobile: "mobile",
+    desktop: "desktop",
+  },
 };
 
 export { CONSTANTS };

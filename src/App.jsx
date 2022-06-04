@@ -1,6 +1,7 @@
-import { createEffect, createResource } from "solid-js";
+import { createEffect, createResource, onMount } from "solid-js";
 
 import { getProductData } from "./utils/get-product-data";
+import { appState, setAppState } from "./store/app.store";
 import { homepageProducts, setHomepageProducts } from "./store/products.store";
 
 const DEFAULT_QUERY = {
@@ -9,9 +10,15 @@ const DEFAULT_QUERY = {
 };
 
 import { HomePageLayout } from "./layout/homepage/homepage.layout";
+import { CONSTANTS } from "./utils/constants";
 
 function App() {
   const [productData] = createResource(DEFAULT_QUERY, getProductData);
+
+  // set device type
+  if (window.innerWidth > CONSTANTS.mobileSize)
+    setAppState({ ...appState, deviceType: CONSTANTS.deviceTypes.desktop });
+  else setAppState({ ...appState, deviceType: CONSTANTS.deviceTypes.mobile });
 
   createEffect(async () => {
     // get homepage featured products after init render
