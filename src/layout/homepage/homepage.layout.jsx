@@ -3,7 +3,6 @@ import { createEffect, lazy, createSignal, createResource } from "solid-js";
 
 import { getProductData } from "../../utils/get-product-data";
 import { BelowFoldContainer } from "../../components/common/container/BelowFoldContainer";
-import { MainNavigation } from "../../components/navigation/MainNavigation";
 import { Hero } from "../../components/hero/Hero";
 import { CallToAction } from "../../components/hero/CallToAction";
 import { ServiceBanner } from "../../components/service-banner/ServiceBanner";
@@ -104,7 +103,6 @@ const HomePageLayout = (props) => {
   return (
     <>
       <div class={appstyles.App}>
-        <MainNavigation />
         {/* HOC takes an jsx component and passes reactive props to it */}
         {/* HERO COMPONENT */}
         <InViewObserver
