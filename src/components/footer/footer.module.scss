@@ -7,6 +7,10 @@
   background-color: black;
   color: vars.$theme-accent;
 }
+.container.main_nav {
+  background-color: transparent;
+  padding: 1.6rem 0;
+}
 
 .inner_container {
   display: flex;

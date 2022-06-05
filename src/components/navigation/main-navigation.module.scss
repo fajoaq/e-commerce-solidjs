@@ -1,13 +1,12 @@
 @use "../../styles/vars.scss";
-
-$nav-height: 84px;
+@use "./mobile-navigation.module.scss";
 
 .container {
   position: fixed;
   top: 0;
   align-items: center;
   width: 100%;
-  height: $nav-height;
+  height: vars.$nav-height;
   text-align: center;
   z-index: 999;
   padding: vars.$spacing-xsmall;
@@ -15,7 +14,7 @@ $nav-height: 84px;
 }
 
 .container_spacer {
-  height: $nav-height;
+  height: vars.$nav-height;
   padding: vars.$spacing-xsmall;
 }
 
@@ -147,6 +146,10 @@ $nav-height: 84px;
 }
 
 @media (max-width: vars.$breakpoint-md) {
+  .logo_container {
+    display: none;
+  }
+
   .links_container {
     display: none;
   }

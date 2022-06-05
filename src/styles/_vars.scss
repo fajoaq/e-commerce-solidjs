@@ -33,6 +33,8 @@ $breakpoint-xs: 460px;
 
 $transition-short: 360ms;
 
+$nav-height: 84px;
+
 /* we need these variables to change inside media queries, using css var */
 :root {
   --font-size-normal: 16px;

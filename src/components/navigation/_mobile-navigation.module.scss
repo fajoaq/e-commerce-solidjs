@@ -1,0 +1,118 @@
+@use "../../styles/vars.scss";
+
+.burger {
+  display: none;
+  position: relative;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+  margin-left: 1.25em;
+}
+.burger::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 2em;
+  max-width: 2em;
+  height: 0.15em;
+  cursor: pointer;
+  background: black;
+  color: rgba(0, 0, 0, 0);
+  box-shadow: 0 0.5em 0 0 black, 0 1em 0 0 black;
+  transition-timing-function: ease-in-out;
+  transition-duration: 260ms;
+  transition-property: max-width, box-shadow, color;
+  transition-delay: 0s, 260ms, 0s;
+}
+.burger[data-active]::before {
+  content: "\02DF";
+  top: -6px;
+  font-size: 56px;
+  color: rgba(0, 0, 0, 1);
+  max-width: 0px;
+  box-shadow: 0 0 0 0 black, 0 0 0 0 black;
+
+  transition-timing-function: ease-in-out;
+  transition-duration: 260ms;
+  transition-property: max-width, box-shadow, color, top, font-size;
+  transition-delay: 260ms, 0s, 260ms, 260ms, 260ms;
+}
+
+.mobile_menu {
+  position: fixed;
+  overflow-y: scroll;
+  top: vars.$nav-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  opacity: 0;
+  visibility: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 999;
+  font-size: var(--font-size-h3);
+  background-color: rgba(11, 11, 11, 0.99);
+  transform: translateX(100vw);
+  transition: opacity, transform, 360ms ease-in-out;
+}
+.mobile_menu[data-active] {
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition: opacity, transform, 360ms ease-in-out;
+}
+.mobile_menu button {
+  width: 100%;
+  max-width: 160px;
+  border: none;
+  color: vars.$font-color-secondary;
+  padding: 1.2em 0.8em;
+  background-color: transparent;
+}
+.mobile_menu button[data-active] {
+  font-weight: vars.$font-w-bold-less;
+}
+.mobile_menu > .button_with_sub.top_menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0;
+  transition: margin-right 360ms ease-in-out;
+}
+.mobile_menu > .button_with_sub.top_menu > div,
+.mobile_menu > .button_with_sub.middle_menu > div {
+  position: absolute;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0ms;
+  transition-property: position;
+  transition-delay: 260ms;
+}
+.mobile_menu > .button_with_sub.top_menu[data-active] > div {
+  position: static;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0ms;
+  transition-property: position;
+  transition-delay: 260ms;
+}
+.mobile_menu > .button_with_sub.top_menu[data-active] {
+  margin-right: 50%;
+  transition: margin-right 360ms ease-in-out;
+}
+.mobile_menu button:last-child {
+  margin-bottom: 2em;
+}
+.mobile_menu .menu_indicator {
+  color: vars.$theme-accent;
+}
+
+@media (max-width: vars.$breakpoint-md) {
+  .burger {
+    display: block;
+  }
+}
