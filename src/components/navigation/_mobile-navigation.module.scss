@@ -85,20 +85,21 @@
   margin-right: 0;
   transition: margin-right 360ms ease-in-out;
 }
-.mobile_menu > .button_with_sub.top_menu > div,
-.mobile_menu > .button_with_sub.middle_menu > div {
+.mobile_menu > .button_with_sub.top_menu > div {
   position: absolute;
+  opacity: 0 !important;
   transition-timing-function: ease-in-out;
-  transition-duration: 0ms;
-  transition-property: position;
-  transition-delay: 260ms;
+  transition-duration: 0ms, 0ms;
+  transition-property: position, opacity;
+  transition-delay: 0ms, 0ms;
 }
 .mobile_menu > .button_with_sub.top_menu[data-active] > div {
   position: static;
+  opacity: 1 !important;
   transition-timing-function: ease-in-out;
-  transition-duration: 0ms;
-  transition-property: position;
-  transition-delay: 260ms;
+  transition-duration: 0ms, 260ms;
+  transition-property: position, opacity;
+  transition-delay: 260ms, 260ms;
 }
 .mobile_menu > .button_with_sub.top_menu[data-active] {
   margin-right: 50%;
