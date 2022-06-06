@@ -1,7 +1,9 @@
-import { appState, setAppState } from "./store/app.store";
 import { onMount } from "solid-js";
 
 import { CONSTANTS } from "./utils/constants";
+import { appState, setAppState } from "./store/app.store";
+import { cartState, setCartState } from "./store/cart.store";
+import { getStorage } from "./utils/getStorage";
 import { getScrollDirection } from "./utils/get-scroll-direction";
 import { HomePageLayout } from "./layout/homepage/homepage.layout";
 import { MainNavigation } from "./components/navigation/MainNavigation";
@@ -35,6 +37,9 @@ function App() {
   }
 
   onMount(() => {
+    const initCartValue = getStorage(localStorage, CONSTANTS.cartStorageKey);
+
+    setCartState({ ...cartState, content: initCartValue.content || [] });
     document.body.onscroll = triggerNavPopper;
   });
   /* nav popper actives/deactivates depending on active state and scroll direction */

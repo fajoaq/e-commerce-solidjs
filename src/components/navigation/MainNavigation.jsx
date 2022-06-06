@@ -1,6 +1,7 @@
 import styles from "./main-navigation.module.scss";
 import appstyles from "../../styles/App.module.scss";
 
+import { CONSTANTS } from "../../utils/constants";
 import { appState, setAppState } from "../../store/app.store";
 import { cartState, setCartState } from "../../store/cart.store";
 import { ShopButton } from "./ShopButton";
@@ -14,7 +15,8 @@ const MainNavigation = (props) => {
   }
 
   function handleCartClick() {
-    setCartState([]);
+    localStorage.removeItem(CONSTANTS.cartStorageKey);
+    setCartState({ ...cartState, content: [] });
   }
 
   return (
@@ -53,7 +55,9 @@ const MainNavigation = (props) => {
             class={[styles.item, styles.cart_container].join(" ")}
             onClick={handleCartClick}
           >
-            <span class={styles.cart_item_count}>{cartState.length}</span>
+            <span class={styles.cart_item_count}>
+              {cartState.content.length}
+            </span>
           </div>
         </nav>
       </div>

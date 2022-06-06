@@ -12,6 +12,16 @@ const ProductPreview = (props) => {
     "loading",
   ]);
 
+  function addToCart() {
+    local.onClick({
+      src: local.src,
+      url: local.url,
+      alt: local.alt,
+      title: local.title,
+      price: local.price,
+    });
+  }
+
   return (
     <div
       class={[local.loading ? styles.loading : "img-loaded", styles.item].join(
@@ -23,7 +33,7 @@ const ProductPreview = (props) => {
       <h3>{local.title}</h3>
       <span>&dollar;{local.price}</span>
       <div class={styles.cta_button}>
-        <a url={local.url || "#"} onClick={local.onClick}>
+        <a url={local.url || "#"} onClick={addToCart}>
           Buy Now
         </a>
       </div>

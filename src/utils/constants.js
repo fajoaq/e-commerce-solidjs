@@ -18,6 +18,7 @@ const CONSTANTS = {
     mobile: "mobile",
     desktop: "desktop",
   },
+  cartStorageKey: "fj-cart-contents",
 };
 
 export { CONSTANTS, SEO };

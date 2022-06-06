@@ -1,11 +1,12 @@
 import styles from "./product-preview.module.scss";
 import appstyles from "../../../styles/App.module.scss";
-import { For, splitProps } from "solid-js";
+import { For, onMount, splitProps } from "solid-js";
 
 import { cartState, setCartState } from "../../../store/cart.store";
 import { CONSTANTS } from "../../../utils/constants";
 import { doXTimes } from "../../../utils/do-x-times";
 import { ProductPreview } from "./ProductPreview";
+
 const DUMMY_PRODUCT = {
   src: CONSTANTS.imgPlaceholderMd,
   alt: "                                ",
@@ -14,8 +15,13 @@ const DUMMY_PRODUCT = {
 };
 
 const ProductShowcase = (props) => {
-  let mainNavContainer = document.getElementById("main-nav-container");
-  let iconContainer = document.getElementById("cart-icon-container");
+  let mainNavContainer = undefined;
+  let iconContainer = undefined;
+  if (document) {
+    mainNavContainer = document.getElementById("main-nav-container");
+    iconContainer = document.getElementById("cart-icon-container");
+  }
+
   const [local, rest] = splitProps(props, [
     "children",
     "products",
@@ -27,19 +33,20 @@ const ProductShowcase = (props) => {
 
   doXTimes(2, () => DUMMY_DATA.push(DUMMY_PRODUCT));
 
-  function addToCart() {
-    let newItem = {
-      src: local.src,
-      url: local.url,
-      alt: local.alt,
-      title: local.title,
-      price: local.price,
-    };
-    setCartState([...cartState, newItem]);
+  function addToCart(newItem) {
+    const newCart = [...cartState.content, newItem];
+
+    localStorage.setItem(
+      CONSTANTS.cartStorageKey,
+      JSON.stringify({ content: newCart })
+    );
+    setCartState({ ...cartState, content: newCart });
     playCartAnim();
   }
 
   function playCartAnim() {
+    if (!mainNavContainer || !iconContainer) return;
+
     mainNavContainer.setAttribute("data-show", true);
     iconContainer.setAttribute("data-pop", false);
 
