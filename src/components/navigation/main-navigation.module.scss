@@ -80,6 +80,9 @@
   display: flex;
   align-items: center;
 }
+.button_with_sub.top_menu {
+  cursor: auto;
+}
 .button_with_sub:not(.top_menu) {
   min-width: 160px;
   padding: 1.2em 0.8em;

@@ -60,8 +60,8 @@ const Footer = (props) => {
               <b>Get In Touch</b>
             ) : (
               <>
-                123 Rich Street, Suite 221
-                <br /> Miami, Florida 33101
+                213 Success Street, Suite 331
+                <br /> Alpha, NJ 08865
                 <br /> United States
               </>
             )}
