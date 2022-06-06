@@ -40,21 +40,22 @@
 }
 
 .mobile_menu {
+  pointer-events: none;
   position: fixed;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
   top: vars.$nav-height;
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 1em;
-  opacity: 0;
   visibility: hidden;
   min-height: 100vh;
   min-width: 100vw;
+  padding: 1em;
+  padding-bottom: vars.$nav-height;
+  opacity: 0;
   z-index: 999;
   font-size: var(--font-size-h3);
   background-color: rgba(11, 11, 11, 0.99);
