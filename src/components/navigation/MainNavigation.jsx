@@ -2,7 +2,7 @@ import styles from "./main-navigation.module.scss";
 import appstyles from "../../styles/App.module.scss";
 
 import { appState, setAppState } from "../../store/app.store";
-import { cartState } from "../../store/cart.store";
+import { cartState, setCartState } from "../../store/cart.store";
 import { ShopButton } from "./ShopButton";
 import { Burger, MobileMenu } from "./BurgerMenu";
 
@@ -11,6 +11,10 @@ const MainNavigation = (props) => {
     e.currentTarget.toggleAttribute("data-active");
     appState.activeMenu?.toggleAttribute("data-active");
     setAppState({ ...appState, activeMenu: e.currentTarget });
+  }
+
+  function handleCartClick() {
+    setCartState([]);
   }
 
   return (
@@ -47,6 +51,7 @@ const MainNavigation = (props) => {
           <div
             id="cart-icon-container"
             class={[styles.item, styles.cart_container].join(" ")}
+            onClick={handleCartClick}
           >
             <span class={styles.cart_item_count}>{cartState.length}</span>
           </div>

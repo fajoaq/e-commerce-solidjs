@@ -144,6 +144,9 @@
   transition: transform 360ms ease-in-out;
 }
 
+.cart_container {
+  cursor: pointer;
+}
 .cart_container::before {
   content: "";
   background-color: vars.$font-color-main;
