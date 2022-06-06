@@ -1,4 +1,5 @@
 import { appState, setAppState } from "./store/app.store";
+import { onMount } from "solid-js";
 
 import { CONSTANTS } from "./utils/constants";
 import { getScrollDirection } from "./utils/get-scroll-direction";
