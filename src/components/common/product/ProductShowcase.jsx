@@ -2,6 +2,7 @@ import styles from "./product-preview.module.scss";
 import appstyles from "../../../styles/App.module.scss";
 import { For, splitProps } from "solid-js";
 
+import { cartState, setCartState } from "../../../store/cart.store";
 import { CONSTANTS } from "../../../utils/constants";
 import { doXTimes } from "../../../utils/do-x-times";
 import { ProductPreview } from "./ProductPreview";
@@ -13,6 +14,8 @@ const DUMMY_PRODUCT = {
 };
 
 const ProductShowcase = (props) => {
+  let mainNavContainer = document.getElementById("main-nav-container");
+  let iconContainer = document.getElementById("cart-icon-container");
   const [local, rest] = splitProps(props, [
     "children",
     "products",
@@ -23,6 +26,29 @@ const ProductShowcase = (props) => {
   let DUMMY_DATA = [];
 
   doXTimes(2, () => DUMMY_DATA.push(DUMMY_PRODUCT));
+
+  function addToCart() {
+    let newItem = {
+      src: local.src,
+      url: local.url,
+      alt: local.alt,
+      title: local.title,
+      price: local.price,
+    };
+    setCartState([...cartState, newItem]);
+    playCartAnim();
+  }
+
+  function playCartAnim() {
+    mainNavContainer.setAttribute("data-show", true);
+    iconContainer.setAttribute("data-pop", false);
+
+    window.requestAnimationFrame(function (time) {
+      window.requestAnimationFrame(function (time) {
+        iconContainer.setAttribute("data-pop", true);
+      });
+    });
+  }
 
   return (
     <div
@@ -39,6 +65,7 @@ const ProductShowcase = (props) => {
               alt={item.alt}
               title={item.title}
               price={item.price}
+              onClick={addToCart}
               loading={local.loading}
             />
           )}

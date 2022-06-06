@@ -17,6 +17,7 @@ const MainNavigation = (props) => {
     <>
       <div class={styles.container_spacer} />
       <div
+        id="main-nav-container"
         class={[styles.container, appstyles.container__global].join(" ")}
         {...props}
       >
@@ -43,7 +44,10 @@ const MainNavigation = (props) => {
             <button onClick={toggleSubMenu}>Contact</button>
           </div>
           {/* cart */}
-          <div class={[styles.item, styles.cart_container].join(" ")}>
+          <div
+            id="cart-icon-container"
+            class={[styles.item, styles.cart_container].join(" ")}
+          >
             <span class={styles.cart_item_count}>{cartState.length}</span>
           </div>
         </nav>

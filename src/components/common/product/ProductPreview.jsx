@@ -1,8 +1,6 @@
 import styles from "./product-preview.module.scss";
 import { splitProps } from "solid-js";
 
-import { cartState, setCartState } from "../../../store/cart.store";
-
 const ProductPreview = (props) => {
   const [local, rest] = splitProps(props, [
     "src",
@@ -10,19 +8,9 @@ const ProductPreview = (props) => {
     "alt",
     "title",
     "price",
+    "onClick",
     "loading",
   ]);
-
-  function addToCart() {
-    let newItem = {
-      src: local.src,
-      url: local.url,
-      alt: local.alt,
-      title: local.title,
-      price: local.price,
-    };
-    setCartState([...cartState, newItem]);
-  }
 
   return (
     <div
@@ -35,7 +23,7 @@ const ProductPreview = (props) => {
       <h3>{local.title}</h3>
       <span>&dollar;{local.price}</span>
       <div class={styles.cta_button}>
-        <a url={local.url || ""} onClick={addToCart}>
+        <a url={local.url || ""} onClick={local.onClick}>
           Buy Now
         </a>
       </div>

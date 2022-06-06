@@ -149,10 +149,23 @@
   width: 1em;
   height: 1em;
 }
+.cart_container[data-pop="true"] {
+  animation: zoom 1s;
+  animation-delay: 260ms;
+}
 
 .cart_item_count {
   padding-right: vars.$spacing-small;
   padding-left: 0.5em;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: vars.$breakpoint-md) {
