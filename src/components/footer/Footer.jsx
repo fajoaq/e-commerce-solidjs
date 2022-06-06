@@ -2,6 +2,30 @@ import styles from "./footer.module.scss";
 import appstyles from "../../styles/App.module.scss";
 import { splitProps } from "solid-js";
 
+const AffiliatedLinks = () => (
+  <p>
+    Based on{" "}
+    <a
+      class={[appstyles.dark_bg_link, appstyles.affiliate_link].join(" ")}
+      href={import.meta.env.VITE_DASHCLICKS_AFFILIATE_LINK}
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      DashClicks
+    </a>{" "}
+    design. Built by{" "}
+    <a
+      class={[appstyles.dark_bg_link, appstyles.affiliate_link].join(" ")}
+      href="https://joaquinc.com"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      Francis Joaquin
+    </a>{" "}
+    with science &#128640;
+  </p>
+);
+
 const Footer = (props) => {
   const [local, rest] = splitProps(props, ["isMainNav"]);
   return (
@@ -41,8 +65,14 @@ const Footer = (props) => {
                 <br /> United States
               </>
             )}
-            <br /> <a href="tel:123-456-7890">(123)-456-7890</a>
-            <br /> <a href="mailto: business@email.com">business@email.com</a>
+            <br />{" "}
+            <a href="tel:123-456-7890" class={appstyles.dark_bg_link}>
+              (123)-456-7890
+            </a>
+            <br />{" "}
+            <a href="mailto: business@email.com" class={appstyles.dark_bg_link}>
+              business@email.com
+            </a>
           </address>
         </article>
 
@@ -89,6 +119,8 @@ const Footer = (props) => {
               <span style="--bgImg: url(/icons/pinterest.svg);" />
             </div>
           </div>
+
+          <AffiliatedLinks />
         </article>
       </div>
     </div>

@@ -20,6 +20,13 @@
   max-width: vars.$breakpoint-lg;
 }
 
+.dark_bg_link {
+  color: vars.$theme-main !important;
+}
+.dark_bg_link.affiliate_link {
+  text-decoration: underline !important;
+}
+
 @media (max-width: vars.$breakpoint-xs) {
   .container__global {
     padding: vars.$spacing-large vars.$spacing-xsmall;

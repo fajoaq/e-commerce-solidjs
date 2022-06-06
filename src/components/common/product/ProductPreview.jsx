@@ -23,7 +23,7 @@ const ProductPreview = (props) => {
       <h3>{local.title}</h3>
       <span>&dollar;{local.price}</span>
       <div class={styles.cta_button}>
-        <a url={local.url || ""} onClick={local.onClick}>
+        <a url={local.url || "#"} onClick={local.onClick}>
           Buy Now
         </a>
       </div>
