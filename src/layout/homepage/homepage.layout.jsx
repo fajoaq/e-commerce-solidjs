@@ -100,7 +100,6 @@ const HomePageLayout = (props) => {
 
       if (reducedLocationsArr.has("best_sellers")) bestSellerArr.push(prod);
     });
-
     setHomepageProducts({
       featuredProducts: featuredArr,
       bestSellers: bestSellerArr,

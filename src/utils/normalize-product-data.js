@@ -6,7 +6,7 @@ function normalizeProductData(data) {
       src: item.fields.thumbnail.fields.file.url,
       alt: item.fields.description,
       title: item.fields.title,
-      price: "299.99",
+      price: item.fields.price,
       featuredLocations: item.fields.featuredLocations,
     })
   );
