@@ -82,8 +82,8 @@
 .mobile_menu > .button_with_sub.top_menu {
   display: flex;
   flex-direction: column;
-  margin-right: 0;
-  transition: margin-right 360ms ease-in-out;
+  transform: translateX(0);
+  transition: transform 360ms ease-in-out;
 }
 .mobile_menu > .button_with_sub.top_menu > div {
   position: absolute;
@@ -102,8 +102,8 @@
   transition-delay: 260ms, 260ms;
 }
 .mobile_menu > .button_with_sub.top_menu[data-active] {
-  margin-right: 50%;
-  transition: margin-right 360ms ease-in-out;
+  transform: translateX(-50%);
+  transition: transform 360ms ease-in-out;
 }
 .mobile_menu button:last-child {
   margin-bottom: 2em;
