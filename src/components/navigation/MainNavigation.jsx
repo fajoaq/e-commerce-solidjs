@@ -2,6 +2,7 @@ import styles from "./main-navigation.module.scss";
 import appstyles from "../../styles/App.module.scss";
 
 import { appState, setAppState } from "../../store/app.store";
+import { cartState } from "../../store/cart.store";
 import { ShopButton } from "./ShopButton";
 import { Burger, MobileMenu } from "./BurgerMenu";
 
@@ -41,9 +42,9 @@ const MainNavigation = (props) => {
 
             <button onClick={toggleSubMenu}>Contact</button>
           </div>
-
+          {/* cart */}
           <div class={[styles.item, styles.cart_container].join(" ")}>
-            <span class={styles.cart_item_count}>3</span> {/* cart */}
+            <span class={styles.cart_item_count}>{cartState.length}</span>
           </div>
         </nav>
       </div>

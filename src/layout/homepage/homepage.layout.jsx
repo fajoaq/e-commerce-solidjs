@@ -111,8 +111,8 @@ const HomePageLayout = (props) => {
     <>
       {/* nav popper actives/deactivates at fold threshold */}
       <InViewObserver
-        id="nav-scroll-observer"
-        Component={(props) => <div class={appstyles.App} {...props} />}
+        id="above-the-fold"
+        Component={(props) => <div {...props} class={appstyles.App} />}
         observeOptions={{ threshold: 0.1, rootMargin: "180px" }}
         defaultState={true}
         callback={local.toggleNavPopper}

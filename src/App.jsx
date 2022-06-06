@@ -21,6 +21,7 @@ function App() {
   function toggleNavPopper() {
     navRef.toggleAttribute("data-active");
   }
+
   function triggerNavPopper() {
     const d = yValue - window.scrollY; // distance between values
     if (Math.abs(d) < toggleDistance) return;
@@ -36,12 +37,12 @@ function App() {
   onMount(() => {
     document.body.onscroll = triggerNavPopper;
   });
-
+  /* nav popper actives/deactivates depending on active state and scroll direction */
+  /* above/below the fold */
   return (
     <div onScroll={triggerNavPopper}>
       <MainNavigation ref={navRef} />
-      {/* nav popper actives/deactivates depending on active state and scroll direction */}
-      {/* above/below the fold */}
+
       <HomePageLayout toggleNavPopper={toggleNavPopper} />
     </div>
   );

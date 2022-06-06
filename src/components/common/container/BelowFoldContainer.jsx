@@ -11,11 +11,7 @@ const BelowFoldContainer = (props) => {
     if (local.inView) setRender(true);
   });
 
-  return (
-    <div {...rest} inView={local.inView}>
-      {render() && local.children}
-    </div>
-  );
+  return <div {...rest}>{render() && local.children}</div>;
 };
 
 export { BelowFoldContainer };
