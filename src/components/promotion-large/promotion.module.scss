@@ -56,25 +56,6 @@
   margin-bottom: vars.$spacing-small;
 }
 
-.cta_button {
-  border-radius: 5px;
-  margin-top: vars.$spacing-xsmall;
-  border: thin solid vars.$theme-accent;
-  height: vars.$spacing-medium;
-  width: vars.$sizing-large;
-  background-color: vars.$theme-main;
-}
-
-.cta_button a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 @media (max-width: vars.$breakpoint-xs) {
   .inner_container {
     padding: vars.$spacing-medium vars.$spacing-xsmall;

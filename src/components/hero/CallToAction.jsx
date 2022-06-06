@@ -1,4 +1,5 @@
 import styles from "./hero.module.scss";
+import appStyles from "../../styles/App.module.scss";
 
 const CallToAction = (props) => (
   <div class={styles.cta_container} {...props}>
@@ -7,8 +8,8 @@ const CallToAction = (props) => (
     <p>
       Shop modern furniture selections that add beauty and elegance to any home.
     </p>
-    <div class={styles.cta_button}>
-      <a>Shop Now</a>
+    <div class={[styles.cta_button, appStyles.cta_button__global].join(" ")}>
+      <a href="#">Shop Now</a>
     </div>
   </div>
 );

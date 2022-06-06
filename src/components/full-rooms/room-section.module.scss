@@ -42,21 +42,8 @@
 }
 
 .cta_button {
-  border-radius: 5px;
-  margin-top: vars.$spacing-xsmall;
-  border: thin solid vars.$theme-accent;
   height: vars.$sizing-xsmall;
   width: vars.$sizing-medium;
-  background-color: vars.$theme-main;
-}
-.cta_button a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .bg {

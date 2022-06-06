@@ -1,5 +1,5 @@
 import styles from "./room-section.module.scss";
-import appstyles from "../../styles/App.module.scss";
+import appStyles from "../../styles/App.module.scss";
 import { createEffect, For, splitProps } from "solid-js";
 
 import { CONSTANTS } from "../../utils/constants";
@@ -33,7 +33,7 @@ const FullRoomSection = (props) => {
 
   return (
     <div
-      class={[styles.container, appstyles.container__global].join(" ")}
+      class={[styles.container, appStyles.container__global].join(" ")}
       {...others}
     >
       <For each={local.featured}>
@@ -41,8 +41,12 @@ const FullRoomSection = (props) => {
           <div class={styles.cta_container}>
             <h2>{item.type}</h2>
             <p>From &#36;{startingPriceList[item.type.toLowerCase()]}</p>
-            <div class={styles.cta_button}>
-              <a>Shop Now</a>
+            <div
+              class={[styles.cta_button, appStyles.cta_button__global].join(
+                " "
+              )}
+            >
+              <a href="#">Shop Now</a>
             </div>
 
             <div class={["full-room-bg", styles.bg].join(" ")}>

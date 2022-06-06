@@ -1,4 +1,5 @@
 import styles from "./promotion.module.scss";
+import appStyles from "../../styles/App.module.scss";
 
 const CallToAction = (props) => (
   <div class={styles.cta_container} {...props}>
@@ -9,8 +10,8 @@ const CallToAction = (props) => (
       <span>All Bedroom Items</span>
     </p>
     <p>Take advantage and order your next bedroom furnishing today!</p>
-    <div class={styles.cta_button}>
-      <a>Shop Now</a>
+    <div class={[styles.cta_button, appStyles.cta_button__global].join(" ")}>
+      <a href="#">Shop Now</a>
     </div>
   </div>
 );
