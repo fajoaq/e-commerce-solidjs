@@ -14,9 +14,12 @@ const InViewObserver = (props) => {
 
   function toggleTracking(entries) {
     if (entries[0].isIntersecting) {
-      if (local.callback) local.callback();
+      if (local.callback) local.callback(true);
       setInView(true);
-    } else setInView(false);
+    } else {
+      if (local.callback) local.callback(false);
+      setInView(false);
+    }
   }
 
   onMount(() => {

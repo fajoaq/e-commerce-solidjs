@@ -1,6 +1,8 @@
 import { createSignal, onCleanup, splitProps } from "solid-js";
 import { throttle } from "lodash";
 
+import { getScrollDirection } from "../../../utils/get-scroll-direction";
+
 /* 
     Component - JSX wrapper, props are passed in
     scrollThreshold - Bg scroll snapping threshold
@@ -19,8 +21,7 @@ const ScrollBgPosYProvider = (props) => {
   const [tracking, setTracking] = createSignal(undefined);
   let observer = undefined;
   let targetEl = undefined;
-  let oldYValue = 0;
-  let newYValue = 0;
+  let yVal = 0;
 
   function toggleTracking(entries) {
     if (tracking() === undefined) {
@@ -32,32 +33,17 @@ const ScrollBgPosYProvider = (props) => {
     else setTracking(false);
   }
 
-  function getScrollDirection() {
-    // Get the new Value
-    newYValue = window.pageYOffset;
-
-    //Subtract the two and conclude
-    if (oldYValue - newYValue > 0) {
-      // Update the old value
-      oldYValue = newYValue;
-      return 1;
-    } else {
-      // Update the old value
-      oldYValue = newYValue;
-      return 0 - 1;
-    }
-  }
-
   function onScroll() {
     if (tracking() === false || targetEl === undefined) return null;
 
     if (bgPosY() > local.scrollThreshold || bgPosY() < -local.scrollThreshold) {
-      oldYValue = 100;
+      yVal = 100;
       setBgPosY(100);
       return null;
     }
 
-    setBgPosY(bgPosY() + getScrollDirection() * 4);
+    setBgPosY(bgPosY() + getScrollDirection(yVal) * 4);
+    yVal = window.scrollY;
   }
 
   const throttledOnScroll = throttle(onScroll, 60);

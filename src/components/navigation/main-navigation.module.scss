@@ -11,6 +11,16 @@
   z-index: 999;
   padding: vars.$spacing-xsmall;
   background-color: vars.$theme-main;
+  transform: translateY(vars.$nav-height * -1);
+  transition: transform 360ms ease-in-out;
+}
+.container[data-active] {
+  transform: translateY(0);
+  transition: transform 360ms ease-in-out;
+}
+.container:not([data-active])[data-show="true"] {
+  transform: translateY(0);
+  transition: transform 360ms ease-in-out;
 }
 
 .container_spacer {

@@ -1,5 +1,11 @@
 import appstyles from "../../styles/App.module.scss";
-import { createEffect, lazy, createSignal, createResource } from "solid-js";
+import {
+  createEffect,
+  lazy,
+  createSignal,
+  createResource,
+  splitProps,
+} from "solid-js";
 
 import { getProductData } from "../../utils/get-product-data";
 import { BelowFoldContainer } from "../../components/common/container/BelowFoldContainer";
@@ -70,15 +76,16 @@ const DEFAULT_QUERY = {
 };
 
 const HomePageLayout = (props) => {
-  const [shouldFetchApi, setShouldFetchApi] = createSignal(false);
+  const [local, rest] = splitProps(props, ["toggleNavPopper"]);
+  const [shouldQueryApi, setShouldQueryApi] = createSignal(false);
   const [productData] = createResource(DEFAULT_QUERY, getProductData);
 
-  function onRenderBelowFold() {
-    setShouldFetchApi(true);
+  function onRenderBelowFold(value) {
+    if (value === true) setShouldQueryApi(true);
   }
 
   createEffect(async () => {
-    if (!shouldFetchApi()) return;
+    if (!shouldQueryApi()) return;
 
     // get homepage featured products after init render
     // these items are below the fold
@@ -102,23 +109,32 @@ const HomePageLayout = (props) => {
 
   return (
     <>
-      <div class={appstyles.App}>
-        {/* HOC takes an jsx component and passes reactive props to it */}
-        {/* HERO COMPONENT */}
-        <InViewObserver
-          id="hero-component"
-          Component={(props) => <Hero {...props} slidesOn={props.inView} />}
-          imgUrlList={heroImgUrlArr}
-          defaultState={true}
-        >
-          <CallToAction />
-        </InViewObserver>
+      {/* nav popper actives/deactivates at fold threshold */}
+      <InViewObserver
+        id="nav-scroll-observer"
+        Component={(props) => <div class={appstyles.App} {...props} />}
+        observeOptions={{ threshold: 0.1, rootMargin: "180px" }}
+        defaultState={true}
+        callback={local.toggleNavPopper}
+      >
+        <div class={appstyles.App}>
+          {/* HOC takes an jsx component and passes reactive props to it */}
+          {/* HERO COMPONENT */}
+          <InViewObserver
+            id="hero-component"
+            Component={(props) => <Hero {...props} slidesOn={props.inView} />}
+            imgUrlList={heroImgUrlArr}
+            defaultState={true}
+          >
+            <CallToAction />
+          </InViewObserver>
 
-        <ServiceBanner />
+          <ServiceBanner />
 
-        <FullRoomSection featured={FULL_ROOM_FEATURED} />
-      </div>
-      {/* lazy load comp below the fold */}
+          <FullRoomSection featured={FULL_ROOM_FEATURED} />
+        </div>
+      </InViewObserver>
+      {/* lazy load comps below the fold */}
       {/* HOC takes an jsx component and passes reactive props to it */}
       <InViewObserver
         id="below-the-fold"
