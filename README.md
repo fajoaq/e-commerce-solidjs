@@ -1,5 +1,3 @@
-## Setup Steps
-
 <h1 align="center">
   <br>
   <a href="https://e-commerce-solidjs.vercel.app/"><img src="/public/site_image.jpg" alt="E-Commerce by Francis Joaquin" width="200"></a>
