@@ -4,7 +4,7 @@
   <br>
   <a href="https://e-commerce-solidjs.vercel.app/"><img src="/public/site_image.jpg" alt="E-Commerce by Francis Joaquin" width="200"></a>
   <br>
-  E-Commerce with Solidjs
+    E-Commerce with Solidjs
   <br>
 </h1>
 
@@ -14,30 +14,30 @@
   <a href="#key-features">Key Features</a> •
   <a href="#credits">Credits</a> •
   <a href="#related">Related</a> •
-    <a href="#learning-solidjs">Learning</a> •
+  <a href="#learning-solidjs">Learning</a> •
   <a href="#license">License</a>
 </p>
 
 ## Key Features
 
-- Contentful - Graphql like data fetching
+* Contentful - Graphql like data fetching
   - Products and their details come from the Contenful data store.
-- Responsive - For all devices
 
-* Fully responsive layout from 320px onward.
+* Responsive - For all devices
+  - Fully responsive layout from 320px onward.
 
-- Data (cart) persistence between sessions
-- Lightning quick first paint - Above the fold first
-  - Only critical resources are loaded above the fold, and the rest when it's needed.
-- Vertical Rhythm - Flowing design
+* Data (cart) persistence between sessions
 
-* Interactivity as you scroll.
+* Lightning quick first paint - Above the fold first
+  - Only critical resources are loaded above the fold, and the rest when they're needed.
 
-- Responsive menu - Animated and interactive
+* Vertical Rhythm - Flowing design
+  - Interactivity as you scroll.
 
-* Mobile friendly and interactive cart animations.
+* Responsive menu - Animated and interactive
+  - Mobile friendly and interactive cart animations.
 
-- Loading animations
+* Loading animations
 
 ## How To Use
 
